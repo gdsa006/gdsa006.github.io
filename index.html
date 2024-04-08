@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PSNS - Import Export</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -37,7 +39,6 @@
 
         .product-image {
             width: 100%;
-            max-width: 300px;
             border-radius: 10px;
             box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s ease-in-out;
@@ -62,7 +63,7 @@
         <div class="container">
             <h2 class="section-heading">About Us</h2>
             <div class="row">
-                <div class="col-md-6 offset-md-3">
+                <div class="col-md-8 offset-md-2">
                     <p>We are Progressive Services & Solutions (PSNS), specializing in international trade and logistics. Our Import-Export branch facilitates seamless cross-border transactions, connecting businesses worldwide.</p>
                 </div>
             </div>
@@ -73,49 +74,26 @@
     <div class="section">
         <div class="container">
             <h2 class="section-heading">Our Products</h2>
-            <div class="row">
-                <div class="col-md-4">
+            <div class="owl-carousel owl-theme">
+                <div class="item">
                     <div class="product-item">
                         <img src="https://via.placeholder.com/300" alt="Product 1" class="product-image">
                         <h3>Product 1</h3>
                         <p>Description of Product 1.</p>
                     </div>
                 </div>
-                <div class="col-md-4">
+                <div class="item">
                     <div class="product-item">
                         <img src="https://via.placeholder.com/300" alt="Product 2" class="product-image">
                         <h3>Product 2</h3>
                         <p>Description of Product 2.</p>
                     </div>
                 </div>
-                <div class="col-md-4">
+                <div class="item">
                     <div class="product-item">
                         <img src="https://via.placeholder.com/300" alt="Product 3" class="product-image">
                         <h3>Product 3</h3>
                         <p>Description of Product 3.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Services Section -->
-    <div class="section bg-light">
-        <div class="container">
-            <h2 class="section-heading">Our Services</h2>
-            <div class="row">
-                <div class="col-md-4 offset-md-2">
-                    <div class="feature-box">
-                        <i class="fas fa-shipping-fast fa-3x mb-3"></i>
-                        <h3>Shipping Solutions</h3>
-                        <p>Efficient and reliable shipping services to and from global destinations.</p>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="feature-box">
-                        <i class="fas fa-globe fa-3x mb-3"></i>
-                        <h3>Global Trade</h3>
-                        <p>Expand your market reach and explore new business opportunities worldwide.</p>
                     </div>
                 </div>
             </div>
@@ -136,8 +114,35 @@
         <p>&copy; 2024 Progressive Services & Solutions - Import Export</p>
     </footer>
 
-    <!-- Bootstrap and Font Awesome JS -->
-    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <!-- Bootstrap and JavaScript libraries -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- Owl Carousel JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $(".owl-carousel").owlCarousel({
+                loop: true,
+                margin: 30,
+                responsiveClass: true,
+                responsive: {
+                    0: {
+                        items: 1,
+                        nav: true
+                    },
+                    768: {
+                        items: 2,
+                        nav: true
+                    },
+                    992: {
+                        items: 3,
+                        nav: true
+                    }
+                }
+            });
+        });
+    </script>
 </body>
 
 </html>
