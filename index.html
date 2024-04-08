@@ -8,104 +8,130 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f8f9fa;
-            color: #333;
-            padding-top: 64.18px; /* Ensure content below fixed header */
-        }
+/* General Styles */
 
-        .navbar {
-            background-color: #ffffff; /* White background */
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add subtle shadow */
-        }
+body {
+    font-family: 'Roboto', Arial, sans-serif; /* Use Roboto as the primary font */
+    background-color: #f8f9fa;
+    color: #333;
+    padding-top: 64px; /* Ensure content below fixed header */
+    margin: 0;
+}
 
-        .navbar-brand {
-            color: #23d1d1; /* Primary color */
-            font-weight: bold;
-            font-size: 1.5rem;
-        }
+/* Navbar Styles */
 
-        .navbar-nav .nav-link {
-            color: #333; /* Dark text color */
-        }
+.navbar {
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
 
-        .navbar-nav .nav-link:hover {
-            color: #23d1d1; /* Hover color */
-        }
+.navbar-brand {
+    color: #23d1d1;
+    font-weight: bold;
+    font-size: 1.5rem;
+}
 
-        .navbar-logo {
-            max-height: 40px;
-            margin-right: 10px;
-        }
+.navbar-nav .nav-link {
+    color: #333;
+}
 
-        .jumbotron {
-            background-image: url('aerial-view-container-cargo-ship-sea.jpg');
-            background-attachment: fixed;
-            color: #fff;
-            padding: 300px 20px;
-            margin-bottom: 0;
-            text-align: center;
-            position: relative;
-            background-size: cover;
-            background-position: center;
-        }
+.navbar-nav .nav-link:hover {
+    color: #23d1d1;
+}
 
-        .jumbotron::after {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(35, 209, 209, 0.5); /* Overlay color (primary color with opacity) */
-        }
+.navbar-logo {
+    max-height: 40px;
+    margin-right: 10px;
+}
 
-        .section {
-            padding: 80px 0;
-            text-align: center;
-        }
+/* Jumbotron Styles */
 
-        .section-heading {
-            margin-bottom: 60px;
-            color: #23d1d1; /* Primary color for section headings */
-        }
+.jumbotron {
+    background-image: url('aerial-view-container-cargo-ship-sea.jpg');
+    background-attachment: fixed;
+    color: #fff;
+    padding: 200px 20px;
+    text-align: center;
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    filter: brightness(1.2) contrast(1.2) saturate(120%);
+}
 
-        .about-content {
-            font-size: 1.1rem;
-            line-height: 1.6;
-        }
+.jumbotron::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 213, 255, 0.34);
+}
 
-        .about-icon {
-            font-size: 3rem;
-            color: #23d1d1;
-            margin-bottom: 20px;
-        }
+.jumbotron h1 {
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+}
 
-        .owl-prev, .owl-next {
-            color: #23d1d1; /* Primary color for Owl Carousel navigation */
-        }
+.jumbotron p {
+    font-size: 1.5rem;
+}
 
-        .owl-prev:hover, .owl-next:hover {
-            color: #333; /* Dark color on hover for Owl Carousel navigation */
-        }
+/* Section Styles */
 
-        .product-item {
-            margin-bottom: 40px;
-            text-align: center;
-        }
+.section {
+    padding: 80px 0;
+    text-align: center;
+}
 
-        .product-image {
-            width: 100%;
-            border-radius: 10px;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease-in-out;
-        }
+.section-heading {
+    margin-bottom: 60px;
+    color: #23d1d1;
+    font-size: 2.5rem;
+}
 
-        .product-image:hover {
-            transform: scale(1.05);
-        }
+.about-content {
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+.about-icon {
+    font-size: 3rem;
+    color: #23d1d1;
+    margin-bottom: 20px;
+}
+
+/* Product Styles */
+
+.product-item {
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.product-image {
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+}
+
+.product-image:hover {
+    transform: scale(1.05);
+}
+
+/* Owl Carousel Styles */
+
+.owl-prev,
+.owl-next {
+    color: #23d1d1;
+}
+
+.owl-prev:hover,
+.owl-next:hover {
+    color: #333;
+}
     </style>
 </head>
 
