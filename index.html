@@ -10,136 +10,137 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <style>
-/* General Styles */
+        /* General Styles */
+        body {
+            font-family: 'Roboto', Arial, sans-serif; /* Use Roboto as the primary font */
+            background-color: #f8f9fa;
+            color: #333;
+            padding-top: 64px; /* Ensure content below fixed header */
+            margin: 0;
+        }
 
-body {
-    font-family: 'Roboto', Arial, sans-serif; /* Use Roboto as the primary font */
-    background-color: #f8f9fa;
-    color: #333;
-    padding-top: 64px; /* Ensure content below fixed header */
-    margin: 0;
-}
+        /* Navbar Styles */
+        .navbar {
+            background-color: #ffffff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
 
-/* Navbar Styles */
+        .navbar-brand {
+            color: #23d1d1;
+            font-weight: bold;
+            font-size: 1.5rem;
+        }
 
-.navbar {
-    background-color: #ffffff;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
+        .navbar-nav .nav-link {
+            color: #333;
+        }
 
-.navbar-brand {
-    color: #23d1d1;
-    font-weight: bold;
-    font-size: 1.5rem;
-}
+        .navbar-nav .nav-link:hover {
+            color: #23d1d1;
+        }
 
-.navbar-nav .nav-link {
-    color: #333;
-}
+        .navbar-logo {
+            max-height: 40px;
+            margin-right: 10px;
+        }
 
-.navbar-nav .nav-link:hover {
-    color: #23d1d1;
-}
+        /* Jumbotron Styles */
+        .jumbotron {
+            background-image: url('aerial-view-container-cargo-ship-sea.jpg');
+            background-attachment: fixed;
+            background-position: center;
+            background-size: cover;
+            color: #fff;
+            padding: 200px 20px;
+            text-align: center;
+            position: relative;
+            filter: brightness(1.2) contrast(1.2) saturate(120%);
+        }
 
-.navbar-logo {
-    max-height: 40px;
-    margin-right: 10px;
-}
+        .jumbotron::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(16, 31, 34, 0.34);
+        }
 
-/* Jumbotron Styles */
+        .jumbotron h1,
+        .jumbotron p {
+            position: relative;
+            z-index: 999;
+            color: #ffffff;
+        }
 
-.jumbotron {
-    background-image: url('aerial-view-container-cargo-ship-sea.jpg');
-    background-attachment: fixed;
-    background-position: center;
-    background-size: cover;
-    color: #fff;
-    padding: 200px 20px;
-    text-align: center;
-    position: relative;
-    background-size: cover;
-    background-position: center;
-    filter: brightness(1.2) contrast(1.2) saturate(120%);
-}
+        /* Section Styles */
+        .section {
+            padding: 80px 0;
+            text-align: center;
+        }
 
-.jumbotron::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 213, 255, 0.34);
-}
+        .section-heading {
+            margin-bottom: 60px;
+            color: #23d1d1;
+            font-size: 2.5rem;
+        }
 
-.jumbotron h1 {
-    font-size: 3.5rem;
-    margin-bottom: 20px;
-    position: relative;
-    z-index: 999;
-    color: #ffffff;
-}
+        /* About Us Section */
+        .about-content {
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
 
-.jumbotron p {
-    font-size: 1.5rem;
-    position: relative;
-    z-index: 999;
-    color: #ffffff;
-}
+        .about-icon {
+            font-size: 3rem;
+            color: #23d1d1;
+            margin-bottom: 20px;
+        }
 
-/* Section Styles */
+        /* Product Section */
+        #products {
+            background-color: #f8f9fa; /* Light background color */
+            padding: 80px 0;
+            text-align: center;
+            position: relative;
+        }
 
-.section {
-    padding: 80px 0;
-    text-align: center;
-}
+        #products::before {
+            content: "";
+            position: absolute;
+            top: -50px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 100px;
+            background-color: #23d1d1;
+            border-radius: 50%;
+        }
 
-.section-heading {
-    margin-bottom: 60px;
-    color: #23d1d1;
-    font-size: 2.5rem;
-}
+        .product-item {
+            margin-bottom: 40px;
+            text-align: center;
+        }
 
-.about-content {
-    font-size: 1.1rem;
-    line-height: 1.6;
-}
+        .product-image {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out;
+        }
 
-.about-icon {
-    font-size: 3rem;
-    color: #23d1d1;
-    margin-bottom: 20px;
-}
+        .product-image:hover {
+            transform: scale(1.05);
+        }
 
-/* Product Styles */
-
-.product-item {
-    margin-bottom: 40px;
-    text-align: center;
-}
-
-.product-image {
-    width: 100%;
-    border-radius: 10px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease-in-out;
-}
-
-.product-image:hover {
-    transform: scale(1.05);
-}
-
-/* Owl Carousel Styles */
-
-.owl-prev,
-.owl-next {
-    color: #23d1d1;
-}
-
-.owl-prev:hover,
-.owl-next:hover {
-    color: #333;
-}
+        /* Footer Styles */
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+        }
     </style>
 </head>
 
@@ -181,7 +182,6 @@ body {
             <p class="lead">Welcome to Progressive Services & Solutions (PSNS), your premier partner for streamlined global trade. We specialize in facilitating seamless import and export transactions, connecting businesses worldwide. Our dedicated team handles integrity, administration, procurement, compliance, and more across diverse industries. Partner with us and unlock new opportunities in international commerce.</p>
         </div>
     </div>
-    
 
     <!-- About Section -->
     <div class="section bg-light" id="about">
@@ -189,41 +189,55 @@ body {
             <h2 class="section-heading">About Us</h2>
             <div class="row">
                 <div class="col-lg-6">
-                    <i class="fas fa-globe about-icon"></i>
-                    <p class="about-content">Progressive Services & Solutions (PSNS) is a leading provider of international trade and logistics solutions. We specialize in facilitating seamless cross-border transactions, connecting businesses worldwide.</p>
+                    <div class="card about-card">
+                        <div class="card-body">
+                            <i class="fas fa-globe about-icon"></i>
+                            <p class="about-content">Progressive Services & Solutions (PSNS) is a leading provider of international trade and logistics solutions. We specialize in facilitating seamless cross-border transactions, connecting businesses worldwide.</p>
+                        </div>
+                    </div>
                 </div>
                 <div class="col-lg-6">
-                    <i class="fas fa-cog about-icon"></i>
-                    <p class="about-content">Our mission is to streamline global commerce by offering efficient and reliable import-export services. We are committed to delivering exceptional value to our clients and partners.</p>
+                    <div class="card about-card">
+                        <div class="card-body">
+                            <i class="fas fa-cog about-icon"></i>
+                            <p class="about-content">Our mission is to streamline global commerce by offering efficient and reliable import-export services. We are committed to delivering exceptional value to our clients and partners.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 
     <!-- Products Section -->
-    <div class="section" id="products">
+    <div id="products">
         <div class="container">
             <h2 class="section-heading">Our Products</h2>
-            <div class="owl-carousel owl-theme">
-                <div class="item">
-                    <div class="product-item">
-                        <img src="https://via.placeholder.com/300" alt="Product 1" class="product-image">
-                        <h3>Product 1</h3>
-                        <p>Description of Product 1.</p>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card product-item">
+                        <img src="https://via.placeholder.com/300" alt="Product 1" class="card-img-top product-image">
+                        <div class="card-body">
+                            <h5 class="card-title">Product 1</h5>
+                            <p class="card-text">Description of Product 1.</p>
+                        </div>
                     </div>
                 </div>
-                <div class="item">
-                    <div class="product-item">
-                        <img src="https://via.placeholder.com/300" alt="Product 2" class="product-image">
-                        <h3>Product 2</h3>
-                        <p>Description of Product 2.</p>
+                <div class="col-md-4">
+                    <div class="card product-item">
+                        <img src="https://via.placeholder.com/300" alt="Product 2" class="card-img-top product-image">
+                        <div class="card-body">
+                            <h5 class="card-title">Product 2</h5>
+                            <p class="card-text">Description of Product 2.</p>
+                        </div>
                     </div>
                 </div>
-                <div class="item">
-                    <div class="product-item">
-                        <img src="https://via.placeholder.com/300" alt="Product 3" class="product-image">
-                        <h3>Product 3</h3>
-                        <p>Description of Product 3.</p>
+                <div class="col-md-4">
+                    <div class="card product-item">
+                        <img src="https://via.placeholder.com/300" alt="Product 3" class="card-img-top product-image">
+                        <div class="card-body">
+                            <h5 class="card-title">Product 3</h5>
+                            <p class="card-text">Description of Product 3.</p>
+                        </div>
                     </div>
                 </div>
             </div>
