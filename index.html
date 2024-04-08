@@ -21,6 +21,25 @@
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add subtle shadow */
         }
 
+        .navbar-brand {
+            color: #23d1d1; /* Primary color */
+            font-weight: bold;
+            font-size: 1.5rem;
+        }
+
+        .navbar-nav .nav-link {
+            color: #333; /* Dark text color */
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: #23d1d1; /* Hover color */
+        }
+
+        .navbar-logo {
+            max-height: 40px;
+            margin-right: 10px;
+        }
+
         .jumbotron {
             background-color: #23d1d1;
             color: #fff;
@@ -38,20 +57,15 @@
             margin-bottom: 60px;
         }
 
-        .product-item {
-            margin-bottom: 40px;
-            text-align: center;
+        .about-content {
+            font-size: 1.1rem;
+            line-height: 1.6;
         }
 
-        .product-image {
-            width: 100%;
-            border-radius: 10px;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease-in-out;
-        }
-
-        .product-image:hover {
-            transform: scale(1.05);
+        .about-icon {
+            font-size: 3rem;
+            color: #23d1d1;
+            margin-bottom: 20px;
         }
     </style>
 </head>
@@ -61,7 +75,10 @@
     <!-- Navigation Menu -->
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
         <div class="container">
-            <a class="navbar-brand" href="#">PSNS - Import Export</a>
+            <a class="navbar-brand" href="#">
+                <img src="path_to_your_logo.png" alt="PSNS Logo" class="navbar-logo">
+                PSNS - Import Export
+            </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -98,8 +115,13 @@
         <div class="container">
             <h2 class="section-heading">About Us</h2>
             <div class="row">
-                <div class="col-md-8 offset-md-2">
-                    <p>We are Progressive Services & Solutions (PSNS), specializing in international trade and logistics. Our Import-Export branch facilitates seamless cross-border transactions, connecting businesses worldwide.</p>
+                <div class="col-lg-6">
+                    <i class="fas fa-globe about-icon"></i>
+                    <p class="about-content">Progressive Services & Solutions (PSNS) is a leading provider of international trade and logistics solutions. We specialize in facilitating seamless cross-border transactions, connecting businesses worldwide.</p>
+                </div>
+                <div class="col-lg-6">
+                    <i class="fas fa-cog about-icon"></i>
+                    <p class="about-content">Our mission is to streamline global commerce by offering efficient and reliable import-export services. We are committed to delivering exceptional value to our clients and partners.</p>
                 </div>
             </div>
         </div>
