@@ -150,6 +150,18 @@
             text-align: center;
             padding: 20px 0;
         }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 30px;
+        }
+        
+        .contact-info i {
+            font-size: 24px;
+            margin-right: 10px;
+        }
     </style>
 </head>
 
@@ -270,11 +282,17 @@
     </div>
 
     <!-- Contact Section -->
-    <div class="section" id="contact">
+    <div class="section" id="contact" style="background-image: url('contact-bg.jpg'); background-size: cover;">
         <div class="container">
             <h2 class="section-heading">Contact Us</h2>
-            <p>Ready to start your import-export journey with us? Reach out today!</p>
+            <p class="text-light">Ready to start your import-export journey with us? Reach out today!</p>
             <button class="btn btn-primary btn-lg">Get in Touch</button>
+        </div>
+        <div class="contact-info">
+            <i class="fas fa-phone"></i>
+            <span>+123-456-7890</span>
+            <i class="fas fa-envelope"></i>
+            <span>info@example.com</span>
         </div>
     </div>
 
