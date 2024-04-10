@@ -348,53 +348,59 @@
     
     <script>
         $(document).ready(function () {
-    // Activate Owl Carousel for Products
-    $(".owl-carousel").owlCarousel({
-        loop: true,
-        margin: 30,
-        responsiveClass: true,
-        responsive: {
-            0: {
-                items: 1,
-                nav: true
-            },
-            768: {
-                items: 2,
-                nav: true
-            },
-            992: {
-                items: 3,
-                nav: true
-            }
-        }
-    });
-
-    // Smooth Scrolling with Offset
-    $("a.nav-link").on('click', function (event) {
-        if (this.hash !== "") {
-            event.preventDefault();
-            var hash = this.hash;
-            $('html, body').animate({
-                scrollTop: $(hash).offset().top - 50
-            }, 800);
-        }
-    });
-
-    // Highlight active navigation link on scroll
-    $(window).scroll(function () {
-        var scrollDistance = $(window).scrollTop();
-
-        // Assign active class to nav links based on scroll position
-        $('section').each(function (i) {
-            if ($(this).position().top <= scrollDistance + 100) {
-                $('.navbar-nav a.nav-link.active').removeClass('active');
-                $('.navbar-nav a.nav-link').eq(i).addClass('active');
-            }
+            // Smooth Scrolling with Offset
+            $("a.nav-link").on('click', function (event) {
+                if (this.hash !== "") {
+                    event.preventDefault();
+                    var hash = this.hash;
+                    $('html, body').animate({
+                        scrollTop: $(hash).offset().top - 50
+                    }, 800, function () {
+                        window.location.hash = hash;
+                    });
+                }
+            });
+    
+            // Highlight active navigation link on scroll
+            $(window).scroll(function () {
+                var scrollDistance = $(window).scrollTop() + 100;
+    
+                // Assign active class to nav links based on scroll position
+                $('section').each(function () {
+                    var sectionTop = $(this).offset().top;
+                    var sectionBottom = sectionTop + $(this).outerHeight();
+    
+                    if (scrollDistance >= sectionTop && scrollDistance <= sectionBottom) {
+                        var sectionId = $(this).attr('id');
+                        $('.navbar-nav a.nav-link').removeClass('active');
+                        $('.navbar-nav a.nav-link[href="#' + sectionId + '"]').addClass('active');
+                    }
+                });
+            });
+    
+            // Activate Owl Carousel for Products
+            $(".owl-carousel").owlCarousel({
+                loop: true,
+                margin: 30,
+                responsiveClass: true,
+                responsive: {
+                    0: {
+                        items: 1,
+                        nav: true
+                    },
+                    768: {
+                        items: 2,
+                        nav: true
+                    },
+                    992: {
+                        items: 3,
+                        nav: true
+                    }
+                }
+            });
         });
-    });
-});
-
     </script>
+    
 </body>
 
 </html>
