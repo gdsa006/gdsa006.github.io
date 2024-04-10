@@ -157,10 +157,21 @@
             align-items: center;
             margin-top: 30px;
         }
-        
         .contact-info i {
             font-size: 24px;
             margin-right: 10px;
+        }
+        .contact-info span {
+            display: flex;
+            align-items: center;
+        }
+        .contact-info span::before,
+        .contact-info span::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background-color: #23d1d1;
+            margin: 0 10px;
         }
     </style>
 </head>
@@ -281,7 +292,6 @@
         </div>
     </div>
 
-    <!-- Contact Section -->
     <div class="section" id="contact" style="background-image: url('contact-bg.jpg'); background-size: cover;">
         <div class="container">
             <h2 class="section-heading">Contact Us</h2>
@@ -290,9 +300,13 @@
         </div>
         <div class="contact-info">
             <i class="fas fa-phone"></i>
-            <span>+123-456-7890</span>
+            <span>
+                <span>+123-456-7890</span>
+            </span>
             <i class="fas fa-envelope"></i>
-            <span>info@example.com</span>
+            <span>
+                <span>info@example.com</span>
+            </span>
         </div>
     </div>
 
