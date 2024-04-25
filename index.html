@@ -11,13 +11,13 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet">
+    <link href="https://fonts.cdnfonts.com/css/good-times-2" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="icon" type="image/png" href="favicon.png">
     <style>
         /* General Styles */
         body {
-            font-family: "DM Sans", sans-serif;
+            font-family: 'Good Times Rg', sans-serif;
             font-optical-sizing: auto;
             font-style: normal;
             background-color: #f8f9fa;
@@ -94,6 +94,7 @@
             position: relative;
             z-index: 999;
             color: rgb(229, 229, 229);
+            margin-bottom: 0;
         }
 
         video{
@@ -175,6 +176,10 @@
             padding: 20px 0;
         }
 
+        footer p{
+            margin-bottom: 0;
+        }
+
         #contact{
             background-color: rgba(33, 33, 33, 0.9);
             padding: 80px 0;
@@ -202,6 +207,126 @@
 
         #partners{
         }
+
+
+        /* For screens smaller than 600px wide */
+@media (max-width: 600px) {
+  /* Apply these styles */
+  body {
+    font-size: 14px;
+  }
+
+  video{
+    width: auto !important;
+  }
+  
+  .container {
+    width: 90%;
+    margin: 0 auto;
+  }
+
+  .jumbotron{
+    padding: 0;
+    margin: 0;
+    height: 235px;
+    display: flex;
+    align-items: center;
+  }
+
+  .jumbotron h1{
+    font-size: 1.4rem !important;
+    margin-bottom: 10px !important;
+  }
+
+  .jumbotron p{
+    font-size: 0.7rem !important;
+  }
+
+  .section{
+    padding: 35px 0 !important;
+  }
+
+  .section-heading{
+    font-size: 1.4rem;
+    margin-bottom: 20px;
+  }
+
+  .about-content{
+    font-size: 0.7rem;
+  }
+
+  .about-icon{
+    font-size: 2rem;
+    padding: 10px;
+    margin-bottom: 20px;
+  }
+
+  .product-item h5{
+    font-size: 1.2rem;
+  }
+
+  .product-item p{
+    font-size: 0.7rem;
+  }
+
+  .product-item img{
+    height: 200px;
+  }
+
+  .product-item{
+    height: auto;
+    margin-bottom: 20px
+  }
+
+  #contact p{
+
+  }
+
+  .about-card{
+    height: auto;
+    margin-bottom: 20px;
+  }
+    
+}
+
+/* For screens between 600px and 900px wide */
+@media (min-width: 600px) and (max-width: 900px) {
+  /* Apply these styles */
+  body {
+    font-size: 16px;
+  }
+  
+  .container {
+    width: 80%;
+    margin: 0 auto;
+  }
+
+  .jumbotron{
+    padding: 80px 20px !important;
+  }
+
+  .jumbotron h1{
+    font-size: 2rem !important;
+  }
+
+  .jumbotron p{
+    font-size: 0.85rem !important;
+  }
+}
+
+/* For screens 900px wide and above */
+@media (min-width: 900px) {
+  /* Apply these styles */
+  body {
+    font-size: 18px;
+  }
+  
+  .container {
+    width: 70%;
+    margin: 0 auto;
+  }
+}
+
     </style>
 </head>
 
@@ -313,15 +438,15 @@
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-lg-12">
-                    <p class="text-center text-white mb-5">Ready to start your import-export journey with us? <span>Reach out today!</span></p>
+                    <p class="text-center text-white mb-3">Ready to start your import-export journey with us? <span>Reach out today!</span></p>
                 </div>
             </div>
             <div class="row justify-content-center">
-                <div class="col-md-6 col-lg-3 text-center mb-3 mb-lg-0">
+                <div class="col-md-6 col-6 col-lg-3 text-center mb-lg-0">
                     <i class="fas fa-phone fa-2x"></i>
                     <a href="tel:+64 27 769 6977"><p class="text-white mt-2">+64 27 769 6977</p></a>
                 </div>
-                <div class="col-md-6 col-lg-3 text-center">
+                <div class="col-md-6 col-6 col-lg-3 text-center">
                     <i class="fas fa-envelope fa-2x"></i>
                     <a href="mailto: export@psns.ltd"><p class="text-white mt-2">export@psns.ltd</p></a>
                 </div>
@@ -347,7 +472,7 @@
     
 
     <!-- Footer Section -->
-    <footer class="text-center py-4">
+    <footer class="text-center">
         <p>&copy; 2024 Progressive Services & Solutions - Import Export</p>
     </footer>
 
