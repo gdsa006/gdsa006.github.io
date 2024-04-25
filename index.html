@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&family=Kalam:wght@300;400;700&family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="icon" type="image/png" href="favicon.png">
     <style>
@@ -117,6 +117,46 @@
             font-weight: bolder;
         }
 
+        #about{
+            text-align: justify;
+            
+        }
+
+        #about .left{
+            display: flex;
+            align-items: flex-start;
+            flex-direction: column;
+            justify-content: center;
+            text-align: left;
+        }
+
+        #about .left .section-heading{
+            margin-bottom: 15px;
+        }
+
+        #about .map{
+            display: none;
+        }
+
+        #about .right .picture{
+            position: relative;
+        }
+
+        #about .right .picture p{
+            position: absolute;
+            font-size: 1.2rem;
+            color: #ffffff;
+            font-style: italic;
+            top: 80px;
+            left: 50%;
+            transform: translateX(-50%) translateY(-50%);
+            font-family: "Kalam", cursive;
+        }
+
+        #about img{
+            border-radius: 8px;
+        }
+
         /* About Us Section */
         .about-content {
             font-size: 1.1rem;
@@ -203,17 +243,27 @@
             display: block
         }
 
+        #contact p{
+            margin-bottom: 50px;
+        }
+
         #contact span{
-            color: #1dc6c6;
+            color: #ffffff;
             text-decoration: underline;
             position: relative;
             z-index: 999;
+            font-weight: 700;
         }
 
         #contact p{
             color: #ffffff;
             position: relative;
             z-index: 999;
+        }
+
+        #contact p small{
+            display: block;
+            font-style: italic;
         }
 
         
@@ -223,10 +273,20 @@
             color: #1dc6c6;
             position: relative;
             z-index: 999;
+            padding: 30px;
+            background-color: #fffffff1;
+            border-radius: 100%;
+            border: 2px #1dc6c6 solid;
         }
        
         #contact a{
             text-decoration: none;
+        }
+
+        #contact a span{
+            text-decoration: none;
+            display: block;
+            font-weight: 600;
         }
 
         #partners{
@@ -238,6 +298,19 @@
   /* Apply these styles */
   body {
     font-size: 14px;
+  }
+
+  #about{
+    background-size: contain;
+    position: relative;
+  }
+
+  #about .map{
+    display: block;
+  }
+
+  #about .picture{
+    display: none;
   }
 
   video{
@@ -310,6 +383,35 @@
     height: auto;
     margin-bottom: 20px;
   }
+
+  #about .map{
+    display: block;
+    position: absolute;
+    width: 100%;
+    object-fit: cover;
+    opacity: 0.2;
+  }
+
+  #about .right .picture{
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        #about .right .picture img{
+            border-radius: 8px !important;
+        }
+
+        #about .right .picture p{
+            position: absolute;
+            font-size: 0.7rem;
+            color: #ffffff;
+            font-style: italic;
+            top: 80px;
+            left: 50%;
+            transform: translateX(-50%) translateY(-50%);
+            font-family: "Kalam", cursive;
+        }
     
 }
 
@@ -392,24 +494,32 @@
             Your browser does not support the video tag.
         </video>
         <div class="container">
-            <h1>Empowering Global Trade</h1>
+            <h1>Global Trade Solutions</h1>
             <p class="lead">Partner with Progressive Services & Solutions (PSNS) to unlock new opportunities and streamline global trade transactions.</p>
         </div>
     </div>
 
     <!-- About Section -->
     <div class="section bg-light" id="about">
+        <img src="map.png" class="map">
         <div class="container">
-            <h2 class="section-heading">About Us</h2>
             <div class="row">
-                
-                <p>
-                    Located at Aukland New Zealand, Progressive Services & Solutions (PSNS) serves as a trusted hub for international trade and logistics solutions. Our strategic location enables us to efficiently facilitate seamless cross-border transactions, connecting businesses worldwide. At PSNS, our mission is to streamline global commerce by providing reliable import-export services with a strong emphasis on efficiency and customer satisfaction. We are dedicated to delivering exceptional value to our clients and partners, ensuring every transaction is executed with precision and professionalism. Partner with us to experience the ease and reliability of international trade facilitated by Progressive Services & Solutions.
-                </p>
-                
+                <div class="col-md-6 order-md-2 col-12 right">
+                    <div class="picture">
+                        <p>"Where Borders Fade<br>Connections Flourish..."</p>
+                        <img src="connecting-the-globe.jpg" alt="Connecting the Globe">
+                    </div>
+                </div>
+                <div class="col-md-6 order-md-1 col-12 left">
+                    <h2 class="section-heading">About Us</h2>
+                    <p>
+                        Located at Auckland, New Zealand, Progressive Services & Solutions (PSNS) serves as a trusted hub for international trade and logistics solutions. Our strategic location enables us to efficiently facilitate seamless cross-border transactions, connecting businesses worldwide. At PSNS, our mission is to streamline global commerce by providing reliable import-export services with a strong emphasis on efficiency and customer satisfaction. We are dedicated to delivering exceptional value to our clients and partners, ensuring every transaction is executed with precision and professionalism. Partner with us to experience the ease and reliability of international trade facilitated by Progressive Services & Solutions.
+                    </p>
+                </div>
             </div>
         </div>
     </div>
+    
 
     <!-- Products Section -->
     <div id="products" class="section">
@@ -451,17 +561,19 @@
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-lg-12">
-                    <p class="text-center text-white mb-3">Ready to start your import-export journey with us? <span>Reach out today!</span></p>
+                    <p class="text-center text-white">Ready to start your import-export journey with us? <span>Reach out today!</span></p>
                 </div>
             </div>
             <div class="row justify-content-center">
                 <div class="col-md-6 col-6 col-lg-3 text-center mb-lg-0">
-                    <i class="fas fa-phone fa-2x"></i>
-                    <a href="tel:+64 27 769 6977"><p class="text-white mt-2">+64 27 769 6977</p></a>
+                    <i class="fas fa-user fa-3x"></i>
+
+                    <a href="tel:+64 210 609 073"><p class="text-white mt-2"><span style="color: #1dc6c6;">Kashitij</span>+64 210 609 073<br>Kshitij.johri@psns.ltd <small>(Business Associate)</small></p></a>
                 </div>
-                <div class="col-md-6 col-6 col-lg-3 text-center">
-                    <i class="fas fa-envelope fa-2x"></i>
-                    <a href="mailto: export@psns.ltd"><p class="text-white mt-2">export@psns.ltd</p></a>
+
+                <div class="col-md-6 col-6 col-lg-3 text-center mb-lg-0">
+                    <i class="fas fa-headset fa-3x"></i>
+                    <a href="tel:+64 27 769 6977"><p class="text-white mt-2"><span style="color: #1dc6c6;">Customer Care</span>+64 27 769 6977<br>support@psns.ltd <small>(General Queries)</small></p></a>
                 </div>
             </div>
         </div>
