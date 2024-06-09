@@ -705,7 +705,7 @@
 
 #contactus{
     padding: 25px 0;
-    background-color: #008080;
+    background-color: #40e0d0;
 }
 
 #contactus .wrapper{
@@ -718,9 +718,25 @@
     flex: 1;    
 }
 
+#contactus .wrapper .icon img{
+    filter: brightness(0) saturate(100%) invert(93%) sepia(94%) saturate(0%) hue-rotate(248deg) brightness(106%) contrast(106%);
+}
+
 #contactus .wrapper .info{
     flex: 1;    
 }
+
+#contactus .wrapper .info h6{
+    color: #ffffff;
+    font-weight: 500;
+    font-size: 15px;
+}
+
+#contactus .wrapper .info p{
+    color: #ffffff;
+    font-size: 13px;
+}
+
 
     </style>
 </head>
@@ -1049,7 +1065,8 @@
                     <img src="008-pin.png">
                 </div>
                 <div class="info">
-                    Aukland, New Zealand
+                    <h6>Location</h6>
+                    <p>Aukland, New Zealand</p>
                 </div>
             </div>
           </div>  
@@ -1060,7 +1077,8 @@
                     <img src="001-email.png">
                 </div>
                 <div class="info">
-                    Aukland, New Zealand
+                    <h6>Email</h6>
+                    <p>support@psns.ltd</p>
                 </div>
             </div>
           </div>  
@@ -1068,10 +1086,11 @@
           <div class="col-md-4">
             <div class="wrapper">
                 <div class="icon">
+                    <h6>Phone</h6>
                     <img src="009-telephone.png">
                 </div>
                 <div class="info">
-                    Aukland, New Zealand
+                    <p>+64 27 769 6977</p>
                 </div>
             </div>
           </div>  
