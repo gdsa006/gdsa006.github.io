@@ -813,27 +813,31 @@
     
             // Activate Owl Carousel for Products
             $(".owl-carousel").owlCarousel({
-                loop: true,
-                margin: 30,
-                responsiveClass: true,
-                responsive: {
-                    0: {
-                        items: 1,
-                        nav: true,
-                        slideBy: 'page'
-                    },
-                    768: {
-                        items: 2.5,
-                        nav: true,
-                        slideBy: 'page'
-                    },
-                    992: {
-                        items: 3.5,
-                        nav: true,
-                        slideBy: 'page'
-                    }
-                }
-            });
+    loop: true,
+    margin: 30,
+    responsiveClass: true,
+    autoplay: true, // Autoplay enabled
+    autoplayTimeout: 3000, // Autoplay interval in milliseconds
+    autoplayHoverPause: true, // Pause autoplay on mouse hover
+    responsive: {
+        0: {
+            items: 1,
+            nav: true,
+            slideBy: 'page'
+        },
+        768: {
+            items: 2.5,
+            nav: true,
+            slideBy: 'page'
+        },
+        992: {
+            items: 3.5,
+            nav: true,
+            slideBy: 'page'
+        }
+    }
+});
+
 
         });
     </script>
