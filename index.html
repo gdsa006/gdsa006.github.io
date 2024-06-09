@@ -379,18 +379,24 @@
 
 .team-member .imgWrapper{
     border-radius: 100%;
-    display: inline-block; /* Ensure container fits the image */
-    border: 2px solid #40E0D0; /* Colored border (green in this case) */
-    padding: 5px; /* Adjust padding to control the border thickness */
+    display: inline-block;
+    border: 3px solid #40E0D0;
+    /* padding: 5px; */
+    width: 200px;
+    height: 200px;
+    position: relative;
 }
 
 .team-member img {
     width: 100%;
     border-radius: 50%;
     transition: transform 0.3s ease-in-out;
-    max-width: 180px;
+    /* max-width: 180px; */
     margin: 0 auto;
     filter: grayscale(1);
+    position: absolute;
+    height: 100%;
+    object-fit: cover;
 }
 
 .team-member img::after{
