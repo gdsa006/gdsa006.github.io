@@ -712,7 +712,7 @@
 
 #contactus{
     padding: 25px 0;
-    background-color: #40e0d0;
+    background: linear-gradient(to right, rgb(64 223 207), rgb(0 128 128))
 }
 
 #contactus .wrapper{
@@ -722,7 +722,8 @@
 }
 
 #contactus .wrapper .icon{
-    flex: 1;    
+    flex: 25%;
+    text-align: center; 
 }
 
 #contactus .wrapper .icon img{
@@ -730,18 +731,25 @@
 }
 
 #contactus .wrapper .info{
-    flex: 1;    
+    flex: 75%;
+    text-align: center; 
+    display: flex;
+    /* align-items: center; */
+    flex-direction: column;
+    justify-content: center;
 }
 
 #contactus .wrapper .info h6{
     color: #ffffff;
-    font-weight: 500;
     font-size: 15px;
+    font-weight: 400;
 }
 
 #contactus .wrapper .info p{
     color: #ffffff;
     font-size: 13px;
+
+    font-weight: 500;
 }
 
 
