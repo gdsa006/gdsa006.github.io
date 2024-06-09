@@ -112,7 +112,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(16, 31, 34, 0.6);
+            background-color: #008080bd;
             display: block
         }
 
@@ -586,6 +586,25 @@
   }
 }
 
+
+
+.typing-animation p {
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 0.15em solid orange;
+  animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
+}
+
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: orange }
+}
     </style>
 </head>
 
@@ -629,7 +648,13 @@
             Your browser does not support the video tag.
         </video>
         <div class="container">
-            <h1>Global <span style="color: #1dc6c6;">Trade</span> Solutions</h1>
+            <div class="typing-animation">
+                <p>Welcome to Global Trade Solutions, your trusted partner in international trade.</p>
+                <p>We specialize in providing comprehensive import-export services to help your business thrive.</p>
+                <p>Our team of experts is dedicated to ensuring smooth and efficient global transactions.</p>
+                <p>Join us on a journey towards seamless and successful international trade.</p>
+              </div>
+            <h1>Global <span style="color: #3fb4b4;">Trade</span> Solutions</h1>
             <p class="lead">Partner with Progressive Services & Solutions (PSNS) to unlock new opportunities and streamline global trade transactions.</p>
         </div>
     </div>
