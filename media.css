@@ -10,11 +10,12 @@
     }
 
     .section{
-        padding: 20px 0 !important;
+        padding: 25px 0 !important;
     }
 
     .section-heading{
         font-size: 22px !important;
+        margin-bottom: 15px !important;
     }
 
     #about .right .picture{
