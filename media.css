@@ -20,6 +20,10 @@
     #about .right .picture{
         margin-bottom: 15px !important;
     }
+
+    #about .last .wrapper p{
+        margin-bottom: 0 !important;
+    }
 }
   
   /* Tablet Styles */
