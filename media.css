@@ -80,6 +80,11 @@
     #contactus .wrapper .info p{
         font-size: 15px !important;
     }
+
+    #contactus .wrapper .icon{
+        flex: 50% !important;
+        text-align: center !important;
+    }
 }
   
   /* Tablet Styles */
