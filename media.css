@@ -25,6 +25,10 @@
     #about .last .wrapper p{
         margin-bottom: 0 !important;
     }
+
+    #products .col-md-4{
+        margin-bottom: 15px !important;
+    }
 }
   
   /* Tablet Styles */
