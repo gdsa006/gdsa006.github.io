@@ -72,6 +72,10 @@
         object-fit: cover;
         object-position: top;
     }
+
+    #contactus .wrapper{
+        margin-bottom: 15px !important;
+    }
 }
   
   /* Tablet Styles */
