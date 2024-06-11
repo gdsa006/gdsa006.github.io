@@ -51,6 +51,25 @@
     .team-member{
         margin-bottom: 0 !important;
     }
+
+    .team-heading {
+        font-size: 1.4rem;
+        margin-bottom: 20px;
+    }
+
+    .team-member h5 {
+        font-size: 1rem;
+    }
+
+    .team-member p {
+        font-size: 0.9rem;
+    }
+
+    .team-member img {
+        height: 100% !important;
+        width: 100% !important;
+        transform: scale(1) !important;
+    }
 }
   
   /* Tablet Styles */
