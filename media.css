@@ -76,6 +76,10 @@
     #contactus .wrapper{
         margin-bottom: 15px !important;
     }
+
+    #contactus .wrapper .info p{
+        font-size: 15px !important;
+    }
 }
   
   /* Tablet Styles */
