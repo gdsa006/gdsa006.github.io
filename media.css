@@ -47,6 +47,10 @@
     #whyus p{
         font-size: 12px !important;
     }
+
+    .team-member{
+        margin-bottom: 0 !important;
+    }
 }
   
   /* Tablet Styles */
