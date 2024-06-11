@@ -29,6 +29,10 @@
     #products .col-md-4{
         margin-bottom: 15px !important;
     }
+
+    #whyus .spacer{
+        display: none !important;
+    }
 }
   
   /* Tablet Styles */
