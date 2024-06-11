@@ -16,6 +16,10 @@
     .section-heading{
         font-size: 22px !important;
     }
+
+    #about .right .picture{
+        margin-bottom: 15px !important;
+    }
 }
   
   /* Tablet Styles */
