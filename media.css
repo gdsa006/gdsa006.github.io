@@ -8,6 +8,10 @@
     .jumbotron h1{
         font-size: 2.5rem !important;
     }
+
+    .section{
+        padding: 20px 0 !important;
+    }
 }
   
   /* Tablet Styles */
