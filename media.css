@@ -85,6 +85,11 @@
         flex: 50% !important;
         text-align: center !important;
     }
+
+    footer p{
+        font-size: 12px !important;
+    }
+    
 }
   
   /* Tablet Styles */
