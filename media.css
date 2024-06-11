@@ -80,6 +80,11 @@
         padding-top: 20px;
     }
 
+    #contactus .col-md-4 .wrapper{
+        margin-bottom: 0 !important;
+        border: 0 !important;
+    }
+
     #contactus .wrapper .info p{
         font-size: 15px !important;
     }
