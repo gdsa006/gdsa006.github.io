@@ -33,6 +33,11 @@
     #whyus .spacer{
         display: none !important;
     }
+
+    #whyus .wrapper{
+        padding-right: 0 !important;
+        text-align: center !important;
+    }
 }
   
   /* Tablet Styles */
