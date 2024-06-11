@@ -15,7 +15,7 @@
 
     .section-heading{
         font-size: 22px !important;
-        margin-bottom: 15px !important;
+        margin-bottom: 25px !important;
     }
 
     #about .right .picture{
@@ -37,6 +37,10 @@
     #whyus .wrapper{
         padding-right: 0 !important;
         text-align: center !important;
+    }
+
+    #whyus h5{
+        font-size: 15px !important;
     }
 }
   
