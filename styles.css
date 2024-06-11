@@ -531,3 +531,7 @@
 
     font-weight: 500;
 }
+
+.owl-nav, .owl-dots{
+    display: none;
+}
