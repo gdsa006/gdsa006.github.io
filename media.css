@@ -12,6 +12,10 @@
     .section{
         padding: 20px 0 !important;
     }
+
+    .section-heading{
+        font-size: 22px !important;
+    }
 }
   
   /* Tablet Styles */
