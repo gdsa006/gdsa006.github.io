@@ -105,6 +105,10 @@
     .default-btn{
         font-size: 13px !important;
     }
+
+    .navbar-logo{
+        max-height: 32px !important;
+    }
 }
   
   /* Tablet Styles */
