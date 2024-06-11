@@ -68,7 +68,9 @@
     .team-member img {
         height: 100% !important;
         width: 100% !important;
-        transform: scale(1) !important;
+        transform: scale(1.5) !important;
+        object-fit: cover;
+        object-position: top;
     }
 }
   

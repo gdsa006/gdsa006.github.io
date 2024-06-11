@@ -361,6 +361,7 @@
     position: relative;
     margin: 0 auto;
     background-color: lightcyan;
+    overflow: hidden;
 }
 
 .team-member img {
