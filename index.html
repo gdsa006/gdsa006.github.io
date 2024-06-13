@@ -568,7 +568,7 @@
                 // Fetch products for the selected category
                 categorySelect.change(function () {
                     let categoryId = $(this).val();
-                    $.get('https://psnsltd.000webhostapp.com/get_products.php?category_id=' + categoryId)
+                    $.get('https://psnsltd.000webhostapp.com/get_products.php?category_id=' + 1)
                         .done(function (data) {
                             let productSelect = $('#product');
                             productSelect.empty();
