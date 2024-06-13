@@ -415,6 +415,7 @@
                     event.preventDefault();
                     var hash = this.hash;
                     var navbarHeight = $('.navbar').outerHeight();
+                    alert(navbarHeight);
                     $('html, body').animate({
                         scrollTop: $(hash).offset().top - navbarHeight 
                     }, 800);
