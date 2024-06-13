@@ -407,37 +407,34 @@
     
     <script>
         $(document).ready(function () {
-            // Smooth Scrolling with Offset
             $("a.nav-link").on('click', function (event) {
-                if (this.hash !== "") {
-                    event.preventDefault();
-                    var hash = this.hash;
-                    $('html, body').animate({
-                        scrollTop: $(hash).offset().top - 50
-                    }, 800, function () {
-                        window.location.hash = hash;
-                    });
-                }
+        if (this.hash !== "") {
+            event.preventDefault();
+            var hash = this.hash;
+            var navbarHeight = $('.navbar').outerHeight();
+            $('html, body').animate({
+                scrollTop: $(hash).offset().top - navbarHeight 
+            }, 800, function () {
+                window.location.hash = hash;
             });
+        }
+    });
     
-            // Highlight active navigation link on scroll
             $(window).scroll(function () {
-                var scrollDistance = $(window).scrollTop() + 0;
+        var navbarHeight = $('.navbar').outerHeight(); 
+        var scrollDistance = $(window).scrollTop();
+
+        $('section').each(function () {
+            var sectionTop = $(this).offset().top - navbarHeight; 
+            var sectionBottom = sectionTop + $(this).outerHeight();
+
+            if (scrollDistance >= sectionTop && scrollDistance < sectionBottom) {
+                var sectionId = $(this).attr('id');
+                $('.navbar-nav a.nav-link').removeClass('active');
+                $('.navbar-nav a.nav-link[href="#' + sectionId + '"]').addClass('active');
+            }
+        });
     
-                // Assign active class to nav links based on scroll position
-                $('section').each(function () {
-                    var sectionTop = $(this).offset().top;
-                    var sectionBottom = sectionTop + $(this).outerHeight();
-    
-                    if (scrollDistance >= sectionTop && scrollDistance <= sectionBottom) {
-                        var sectionId = $(this).attr('id');
-                        $('.navbar-nav a.nav-link').removeClass('active');
-                        $('.navbar-nav a.nav-link[href="#' + sectionId + '"]').addClass('active');
-                    }
-                });
-            });
-    
-            // Activate Owl Carousel for Products
             $(".owl-carousel").owlCarousel({
     loop: true,
     margin: 30,
@@ -473,7 +470,6 @@
 
     <script>
         $(document).ready(function () {
-            // Smooth Scrolling with Offset
             $("a.nav-link").on('click', function (event) {
                 if (this.hash !== "") {
                     event.preventDefault();
@@ -486,11 +482,9 @@
                 }
             });
     
-            // Highlight active navigation link on scroll
             $(window).scroll(function () {
                 var scrollDistance = $(window).scrollTop() + 0;
     
-                // Assign active class to nav links based on scroll position
                 $('section').each(function () {
                     var sectionTop = $(this).offset().top;
                     var sectionBottom = sectionTop + $(this).outerHeight();
@@ -508,10 +502,10 @@
                 loop: true,
                 margin: 30,
                 responsiveClass: true,
-                autoplay: true, // Autoplay enabled
-                autoplayTimeout: 3000, // Autoplay interval in milliseconds
-                autoplayHoverPause: true, // Pause autoplay on mouse hover
-                center: true, // Center the active item
+                autoplay: true,
+                autoplayTimeout: 3000,
+                autoplayHoverPause: true, 
+                center: true,
                 nav: false,
                 dots: false,
                 responsive: {
@@ -530,79 +524,18 @@
                 }
             });
     
-            // Handle Enquire Now button click
             $('.query-btn').on('click', function () {
                 var category = $(this).data('category');
                 $('#category').val(category);
                 $('#productQueryModal').modal('show');
             });
-    
-            // Handle form submission
-            $('#productQueryForm').on('submit', function (event) {
+                $('#productQueryForm').on('submit', function (event) {
                 event.preventDefault();
-                // Handle the form submission here (e.g., send data to server, show a success message, etc.)
                 alert('Query submitted successfully!');
                 $('#productQueryModal').modal('hide');
             });
         });
     </script>
-
-
-
-<!-- 
-<script>
-  $(document).ready(function () {
-    // Fetch categories and populate the select box in modal
-    $.get('https://psnsltd.000webhostapp.com/get_categories.php')
-        .done(function (data) {
-            if (data && data.length > 0) {
-                let categorySelect = $('#category');
-                categorySelect.empty();
-                data.forEach(function (category) {
-                    categorySelect.append('<option value="' + category.id + '">' + category.name + '</option>');
-                });
-
-                // Fetch products for the selected category
-                categorySelect.change(function () {
-                    let categoryId = $(this).val();
-                    $.get('https://psnsltd.000webhostapp.com/get_products.php?category_id=' + categoryId)
-                        .done(function (data) {
-                            let productSelect = $('#product');
-                            productSelect.empty();
-                            if (data && data.length > 0) {
-                                data.forEach(function (product) {
-                                    productSelect.append('<option value="' + product.id + '">' + product.name + '</option>');
-                                });
-                            } else {
-                                productSelect.append('<option value="">No products available</option>');
-                            }
-                        })
-                        .fail(function () {
-                            alert('Failed to fetch products for the selected category');
-                        });
-                });
-
-                // Trigger change event to load products for the first category
-                categorySelect.trigger('change');
-            } else {
-                // Handle scenario where no categories are available
-                $('#category').html('<option value="">No categories available</option>');
-            }
-        })
-        .fail(function () {
-            // Handle failure to fetch categories
-            alert('Failed to fetch categories');
-        });
-
-    // Handle form submission
-    $('#productQueryForm').submit(function (event) {
-        event.preventDefault();
-        // Handle the form submission here, e.g., send data to the server
-        alert('Query submitted!');
-        $('#productQueryModal').modal('hide');
-    });
-});
-</script> -->
 
 
 
@@ -631,11 +564,8 @@ function fetchProducts(categoryId) {
 // Fetch products from API
 $.get('https://psnsltd.000webhostapp.com/get_categories.php')
     .done(function (data) {
-        // Check if data is valid
         if (data && data.length > 0) {
-            // Iterate through each product and create a card
             data.forEach(function (category) {
-                // Create product card HTML
                 var productCard = `
                     <div class="col-lg-4 col-md-4 col-12">
                         <div class="card product-item">
@@ -648,34 +578,27 @@ $.get('https://psnsltd.000webhostapp.com/get_categories.php')
                         </div>
                     </div>`;
                 
-                // Append product card to the productCards container
                 $('#productCards').append(productCard);
             });
 
-            // Attach click event to Enquire Now buttons
             $('.query-btn').click(function () {
                 let categoryId = $(this).data('category');
-                $('#category').val(categoryId); // Set category ID in hidden input
+                $('#category').val(categoryId);
                 
-                // Show modal and fetch products for the selected category
                 $('#productQueryModal').modal('show').on('shown.bs.modal', function () {
                     fetchProducts(categoryId);
                 });
             });
         } else {
-            // Handle no data scenario
             $('#productCards').html('<p>No products available</p>');
         }
     })
     .fail(function () {
-        // Handle failure to fetch products
         $('#productCards').html('<p>Failed to load products</p>');
     });
 
-// Handle form submission
 $('#productQueryForm').submit(function (event) {
     event.preventDefault();
-    // Handle the form submission here, e.g., send data to the server
     alert('Query submitted!');
     $('#productQueryModal').modal('hide');
 });
