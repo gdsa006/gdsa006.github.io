@@ -538,6 +538,8 @@
 
 #productQueryModal .modal-dialog .modal-content{
     background-color: #F0F0F0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border: 0;
 }
 
 #productQueryModal h5{
@@ -552,4 +554,8 @@
 
 #productQueryForm input, #productQueryForm select, #productQueryForm textarea{
     font-size: 13px;
+}
+
+#productQueryModal{
+    background-color: #ffffffed;
 }
