@@ -612,83 +612,76 @@
 <script>
 $(document).ready(function () {
 
-    function fetchProducts(categoryId) {
-        $.get('https://psnsltd.000webhostapp.com/get_products.php?category_id=' + categoryId)
-            .done(function (data) {
-                let productSelect = $('#product');
-                productSelect.empty();
-                if (data && data.length > 0) {
-                    data.forEach(function (product) {
-                        productSelect.append('<option value="' + product.id + '">' + product.name + '</option>');
-                    });
-                } else {
-                    productSelect.append('<option value="">No products available</option>');
-                }
-            })
-            .fail(function () {
-                alert('Failed to fetch products for the selected category');
-            });
-    }
-
-
-    // Fetch products from API
-    $.get('https://psnsltd.000webhostapp.com/get_categories.php')
+function fetchProducts(categoryId) {
+    $.get('https://psnsltd.000webhostapp.com/get_products.php?category_id=' + categoryId)
         .done(function (data) {
-            // Check if data is valid
+            let productSelect = $('#product');
+            productSelect.empty();
             if (data && data.length > 0) {
-                // Iterate through each product and create a card
-                data.forEach(function (category) {
-                    // Create product card HTML
-                    var productCard = `
-                        <div class="col-lg-4 col-md-4 col-12">
-                            <div class="card product-item">
-                                <img src="https://psnsltd.000webhostapp.com/${category.image}" alt="${category.name}" class="card-img-top product-image">
-                                <div class="card-body">
-                                    <h5 class="card-title">${category.name}</h5>
-                                    <p class="card-text">${category.description}</p>
-                                    <button class="btn navbar-btn query-btn" data-category="${category.id}">Enquire Now</button>
-                                </div>
-                            </div>
-                        </div>`;
-                    
-                    // Append product card to the productCards container
-                    $('#productCards').append(productCard);
-                });
-
-                // Attach click event to Enquire Now buttons
-                $('.query-btn').click(function () {
-                    alert('1');
-                    let categoryId = $(this).data('category');
-                    $('#category').val(categoryId); // Set category ID in hidden input
-
-                    // Check if modal is open
-                    if ($('#productQueryModal').hasClass('show')) {
-                        // Modal is open, fetch products for the selected category
-                        fetchProducts(categoryId);
-                    } else {
-                        // Modal is not open, show the modal and fetch products after it's shown
-                        $('#productQueryModal').modal('show').on('shown.bs.modal', function () {
-                            fetchProducts(categoryId);
-                        });
-                    }
+                data.forEach(function (product) {
+                    productSelect.append('<option value="' + product.id + '">' + product.name + '</option>');
                 });
             } else {
-                // Handle no data scenario
-                $('#productCards').html('<p>No products available</p>');
+                productSelect.append('<option value="">No products available</option>');
             }
         })
         .fail(function () {
-            // Handle failure to fetch products
-            $('#productCards').html('<p>Failed to load products</p>');
+            alert('Failed to fetch products for the selected category');
         });
+}
 
-    // Handle form submission
-    $('#productQueryForm').submit(function (event) {
-        event.preventDefault();
-        // Handle the form submission here, e.g., send data to the server
-        alert('Query submitted!');
-        $('#productQueryModal').modal('hide');
+
+// Fetch products from API
+$.get('https://psnsltd.000webhostapp.com/get_categories.php')
+    .done(function (data) {
+        // Check if data is valid
+        if (data && data.length > 0) {
+            // Iterate through each product and create a card
+            data.forEach(function (category) {
+                // Create product card HTML
+                var productCard = `
+                    <div class="col-lg-4 col-md-4 col-12">
+                        <div class="card product-item">
+                            <img src="https://psnsltd.000webhostapp.com/${category.image}" alt="${category.name}" class="card-img-top product-image">
+                            <div class="card-body">
+                                <h5 class="card-title">${category.name}</h5>
+                                <p class="card-text">${category.description}</p>
+                                <button class="btn navbar-btn query-btn" data-category="${category.id}">Enquire Now</button>
+                            </div>
+                        </div>
+                    </div>`;
+                
+                // Append product card to the productCards container
+                $('#productCards').append(productCard);
+            });
+
+            // Attach click event to Enquire Now buttons
+            $('.query-btn').click(function () {
+                let categoryId = $(this).data('category');
+                $('#category').val(categoryId); // Set category ID in hidden input
+                
+                // Show modal and fetch products for the selected category
+                $('#productQueryModal').modal('show').on('shown.bs.modal', function () {
+                    fetchProducts(categoryId);
+                });
+            });
+        } else {
+            // Handle no data scenario
+            $('#productCards').html('<p>No products available</p>');
+        }
+    })
+    .fail(function () {
+        // Handle failure to fetch products
+        $('#productCards').html('<p>Failed to load products</p>');
     });
+
+// Handle form submission
+$('#productQueryForm').submit(function (event) {
+    event.preventDefault();
+    // Handle the form submission here, e.g., send data to the server
+    alert('Query submitted!');
+    $('#productQueryModal').modal('hide');
+});
 });
 </script>
 </body>
