@@ -415,7 +415,6 @@
                     event.preventDefault();
                     var hash = this.hash;
                     var navbarHeight = $('.navbar').outerHeight();
-                    alert(navbarHeight);
                     $('html, body').animate({
                         scrollTop: $(hash).offset().top - navbarHeight 
                     }, 800);
@@ -427,7 +426,7 @@
         var scrollDistance = $(window).scrollTop();
 
         $('section').each(function () {
-            var sectionTop = $(this).offset().top; 
+            var sectionTop = $(this).offset().top - navbarHeight + 5; 
             var sectionBottom = sectionTop + $(this).outerHeight();
 
             if (scrollDistance >= sectionTop && scrollDistance < sectionBottom) {
