@@ -164,6 +164,7 @@
                         <div class="card-body">
                             <h5 class="card-title">Scrap Metals</h5>
                             <p class="card-text">We offer a comprehensive range of scrap metals, including ferrous and non-ferrous materials. Our scrap metals are sourced from reliable suppliers and are available in various quantities to meet your specific needs.</p>
+                            <button class="btn btn-primary query-btn" data-category="Scrap Metals">Enquire Now</button>
                         </div>
                     </div>
                 </div>
@@ -173,6 +174,7 @@
                         <div class="card-body">
                             <h5 class="card-title">Various Metals</h5>
                             <p class="card-text">In addition to scrap metals, we provide various metals for industrial and commercial applications. From aluminum to copper to steel, our diverse range of metals ensures that you find the right materials for your projects.</p>
+                            <button class="btn btn-primary query-btn" data-category="Various Metals">Enquire Now</button>
                         </div>
                     </div>
                 </div>
@@ -182,6 +184,7 @@
                         <div class="card-body">
                             <h5 class="card-title">Import Range</h5>
                             <p class="card-text">Stay tuned for our upcoming import range, featuring a curated selection of products from around the world. From electronics to textiles to consumer goods, we aim to bring you the latest and most sought-after products to meet market demands.</p>
+                            <button class="btn btn-primary query-btn" data-category="Import Range">Enquire Now</button>
                         </div>
                     </div>
                 </div>
@@ -379,6 +382,56 @@
         <p>&copy; 2024 Progressive Services & Solutions - Import Export</p>
     </footer>
 
+
+    <!-- Product Query Modal -->
+<div class="modal fade" id="productQueryModal" tabindex="-1" role="dialog" aria-labelledby="productQueryModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="productQueryModalLabel">Product Query</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="productQueryForm">
+                    <div class="form-group">
+                        <label for="category">Category</label>
+                        <input type="text" class="form-control" id="category" name="category" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label for="product">Product</label>
+                        <select class="form-control" id="product" name="product">
+                            <option value="Product 1">Product 1</option>
+                            <option value="Product 2">Product 2</option>
+                            <option value="Product 3">Product 3</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="quantity">Quantity</label>
+                        <input type="number" class="form-control" id="quantity" name="quantity" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="name">Your Name</label>
+                        <input type="text" class="form-control" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" class="form-control" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea class="form-control" id="message" name="message" rows="3" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit Query</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
     <!-- Bootstrap and JavaScript libraries -->
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
@@ -449,6 +502,84 @@
         });
     </script>
     
+
+
+
+    <script>
+        $(document).ready(function () {
+            // Smooth Scrolling with Offset
+            $("a.nav-link").on('click', function (event) {
+                if (this.hash !== "") {
+                    event.preventDefault();
+                    var hash = this.hash;
+                    $('html, body').animate({
+                        scrollTop: $(hash).offset().top - 50
+                    }, 800, function () {
+                        window.location.hash = hash;
+                    });
+                }
+            });
+    
+            // Highlight active navigation link on scroll
+            $(window).scroll(function () {
+                var scrollDistance = $(window).scrollTop() + 0;
+    
+                // Assign active class to nav links based on scroll position
+                $('section').each(function () {
+                    var sectionTop = $(this).offset().top;
+                    var sectionBottom = sectionTop + $(this).outerHeight();
+    
+                    if (scrollDistance >= sectionTop && scrollDistance <= sectionBottom) {
+                        var sectionId = $(this).attr('id');
+                        $('.navbar-nav a.nav-link').removeClass('active');
+                        $('.navbar-nav a.nav-link[href="#' + sectionId + '"]').addClass('active');
+                    }
+                });
+            });
+    
+            // Activate Owl Carousel for Products
+            $(".owl-carousel").owlCarousel({
+                loop: true,
+                margin: 30,
+                responsiveClass: true,
+                autoplay: true, // Autoplay enabled
+                autoplayTimeout: 3000, // Autoplay interval in milliseconds
+                autoplayHoverPause: true, // Pause autoplay on mouse hover
+                center: true, // Center the active item
+                nav: false,
+                dots: false,
+                responsive: {
+                    0: {
+                        items: 1,
+                        nav: true,
+                    },
+                    768: {
+                        items: 2,
+                        nav: true,
+                    },
+                    992: {
+                        items: 3,
+                        nav: true,
+                    }
+                }
+            });
+    
+            // Handle Enquire Now button click
+            $('.query-btn').on('click', function () {
+                var category = $(this).data('category');
+                $('#category').val(category);
+                $('#productQueryModal').modal('show');
+            });
+    
+            // Handle form submission
+            $('#productQueryForm').on('submit', function (event) {
+                event.preventDefault();
+                // Handle the form submission here (e.g., send data to server, show a success message, etc.)
+                alert('Query submitted successfully!');
+                $('#productQueryModal').modal('hide');
+            });
+        });
+    </script>
 </body>
 
 </html>
