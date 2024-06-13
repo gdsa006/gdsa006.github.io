@@ -580,6 +580,47 @@
             });
         });
     </script>
+
+
+
+
+<script>
+    // Fetch categories and populate the select box
+    $(document).ready(function () {
+        $.get('get_categories.php', function (data) {
+            let categorySelect = $('#category');
+            categorySelect.empty();
+            data.forEach(function (category) {
+                categorySelect.append('<option value="' + category.id + '">' + category.name + '</option>');
+            });
+
+            // Fetch products for the selected category
+            categorySelect.change(function () {
+                let categoryId = $(this).val();
+                $.get('get_products.php?category_id=' + categoryId, function (data) {
+                    let productSelect = $('#product');
+                    productSelect.empty();
+                    data.forEach(function (product) {
+                        productSelect.append('<option value="' + product.id + '">' + product.name + '</option>');
+                    });
+                });
+            });
+
+            // Trigger change event to load products for the first category
+            categorySelect.trigger('change');
+        });
+
+        // Handle form submission
+        $('#productQueryForm').submit(function (event) {
+            event.preventDefault();
+            // Handle the form submission here, e.g., send data to the server
+            alert('Query submitted!');
+            $('#productQueryModal').modal('hide');
+        });
+    });
+</script>
+
+
 </body>
 
 </html>
