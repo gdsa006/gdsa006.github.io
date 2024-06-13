@@ -550,6 +550,6 @@
     font-size: 13px;
 }
 
-#productQueryForm input, #productQueryForm select{
+#productQueryForm input, #productQueryForm select, #productQueryForm textarea{
     font-size: 13px;
 }
