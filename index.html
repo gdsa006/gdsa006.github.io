@@ -552,7 +552,7 @@
 
 
 
-
+<!-- 
 <script>
   $(document).ready(function () {
     // Fetch categories and populate the select box in modal
@@ -605,13 +605,12 @@
         $('#productQueryModal').modal('hide');
     });
 });
-</script>
+</script> -->
 
 
 
 <script>
 $(document).ready(function () {
-
 
     function fetchProducts(categoryId) {
         $.get('https://psnsltd.000webhostapp.com/get_products.php?category_id=' + categoryId)
@@ -630,8 +629,6 @@ $(document).ready(function () {
                 alert('Failed to fetch products for the selected category');
             });
     }
-
-
 
 
     // Fetch products from API
@@ -660,6 +657,7 @@ $(document).ready(function () {
 
                 // Attach click event to Enquire Now buttons
                 $('.query-btn').click(function () {
+                    alert('1');
                     let categoryId = $(this).data('category');
                     $('#category').val(categoryId); // Set category ID in hidden input
 
