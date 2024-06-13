@@ -536,7 +536,7 @@
     display: none;
 }
 
-#productQueryModal{
+#productQueryModal .modal-dialog{
     background-color: #F0F0F0;
 }
 
