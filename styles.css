@@ -549,3 +549,7 @@
     font-family: "Roboto", sans-serif;
     font-size: 13px;
 }
+
+#productQueryForm input{
+    font-size: 13px;
+}
