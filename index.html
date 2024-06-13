@@ -556,39 +556,58 @@
 
 
 <script>
-    // Fetch categories and populate the select box
-    $(document).ready(function () {
-        $.get('get_categories.php', function (data) {
-            let categorySelect = $('#category');
-            categorySelect.empty();
-            data.forEach(function (category) {
-                categorySelect.append('<option value="' + category.id + '">' + category.name + '</option>');
-            });
-
-            // Fetch products for the selected category
-            categorySelect.change(function () {
-                let categoryId = $(this).val();
-                $.get('get_products.php?category_id=' + categoryId, function (data) {
-                    let productSelect = $('#product');
-                    productSelect.empty();
-                    data.forEach(function (product) {
-                        productSelect.append('<option value="' + product.id + '">' + product.name + '</option>');
-                    });
+  $(document).ready(function () {
+    // Fetch categories and populate the select box in modal
+    $.get('https://psnsltd.000webhostapp.com/get_categories.php')
+        .done(function (data) {
+            if (data && data.length > 0) {
+                let categorySelect = $('#category');
+                categorySelect.empty();
+                data.forEach(function (category) {
+                    categorySelect.append('<option value="' + category.id + '">' + category.name + '</option>');
                 });
-            });
 
-            // Trigger change event to load products for the first category
-            categorySelect.trigger('change');
+                // Fetch products for the selected category
+                categorySelect.change(function () {
+                    let categoryId = $(this).val();
+                    $.get('https://psnsltd.000webhostapp.com/get_products.php?category_id=' + categoryId)
+                        .done(function (data) {
+                            let productSelect = $('#product');
+                            productSelect.empty();
+                            if (data && data.length > 0) {
+                                data.forEach(function (product) {
+                                    productSelect.append('<option value="' + product.id + '">' + product.name + '</option>');
+                                });
+                            } else {
+                                productSelect.append('<option value="">No products available</option>');
+                            }
+                        })
+                        .fail(function () {
+                            alert('Failed to fetch products for the selected category');
+                        });
+                });
+
+                // Trigger change event to load products for the first category
+                categorySelect.trigger('change');
+            } else {
+                // Handle scenario where no categories are available
+                $('#category').html('<option value="">No categories available</option>');
+            }
+        })
+        .fail(function () {
+            // Handle failure to fetch categories
+            alert('Failed to fetch categories');
         });
 
-        // Handle form submission
-        $('#productQueryForm').submit(function (event) {
-            event.preventDefault();
-            // Handle the form submission here, e.g., send data to the server
-            alert('Query submitted!');
-            $('#productQueryModal').modal('hide');
-        });
+    // Handle form submission
+    $('#productQueryForm').submit(function (event) {
+        event.preventDefault();
+        // Handle the form submission here, e.g., send data to the server
+        alert('Query submitted!');
+        $('#productQueryModal').modal('hide');
     });
+});
+
 </script>
 
 <script>
