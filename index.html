@@ -618,16 +618,16 @@ $(document).ready(function () {
             // Check if data is valid
             if (data && data.length > 0) {
                 // Iterate through each product and create a card
-                data.forEach(function (product) {
+                data.forEach(function (category) {
                     // Create product card HTML
                     var productCard = `
                         <div class="col-lg-4 col-md-4 col-12">
                             <div class="card product-item">
-                                <img src="https://psnsltd.000webhostapp.com/${product.image}" alt="${product.name}" class="card-img-top product-image">
+                                <img src="https://psnsltd.000webhostapp.com/${category.image}" alt="${category.name}" class="card-img-top product-image">
                                 <div class="card-body">
-                                    <h5 class="card-title">${product.name}</h5>
-                                    <p class="card-text">${product.description}</p>
-                                    <button class="btn navbar-btn query-btn" data-category="${product.category_id}">Enquire Now</button>
+                                    <h5 class="card-title">${category.name}</h5>
+                                    <p class="card-text">${category.description}</p>
+                                    <button class="btn navbar-btn query-btn" data-category="${category.id}">Enquire Now</button>
                                 </div>
                             </div>
                         </div>`;
