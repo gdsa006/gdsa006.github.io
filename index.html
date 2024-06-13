@@ -568,7 +568,7 @@
                 // Fetch products for the selected category
                 categorySelect.change(function () {
                     let categoryId = $(this).val();
-                    $.get('https://psnsltd.000webhostapp.com/get_products.php?category_id=' + 1)
+                    $.get('https://psnsltd.000webhostapp.com/get_products.php?category_id=' + categoryId)
                         .done(function (data) {
                             let productSelect = $('#product');
                             productSelect.empty();
@@ -611,6 +611,29 @@
 
 <script>
 $(document).ready(function () {
+
+
+    function fetchProducts(categoryId) {
+        $.get('https://psnsltd.000webhostapp.com/get_products.php?category_id=' + categoryId)
+            .done(function (data) {
+                let productSelect = $('#product');
+                productSelect.empty();
+                if (data && data.length > 0) {
+                    data.forEach(function (product) {
+                        productSelect.append('<option value="' + product.id + '">' + product.name + '</option>');
+                    });
+                } else {
+                    productSelect.append('<option value="">No products available</option>');
+                }
+            })
+            .fail(function () {
+                alert('Failed to fetch products for the selected category');
+            });
+    }
+
+
+
+
     // Fetch products from API
     $.get('https://psnsltd.000webhostapp.com/get_categories.php')
         .done(function (data) {
@@ -637,11 +660,19 @@ $(document).ready(function () {
 
                 // Attach click event to Enquire Now buttons
                 $('.query-btn').click(function () {
-                    let category = $(this).data('category');
-                    $('#category').val(category);
-                    $('#productQueryModal').modal('show');
-                    
-                    // Optionally fetch more details or handle modal content dynamically here
+                    let categoryId = $(this).data('category');
+                    $('#category').val(categoryId); // Set category ID in hidden input
+
+                    // Check if modal is open
+                    if ($('#productQueryModal').hasClass('show')) {
+                        // Modal is open, fetch products for the selected category
+                        fetchProducts(categoryId);
+                    } else {
+                        // Modal is not open, show the modal and fetch products after it's shown
+                        $('#productQueryModal').modal('show').on('shown.bs.modal', function () {
+                            fetchProducts(categoryId);
+                        });
+                    }
                 });
             } else {
                 // Handle no data scenario
