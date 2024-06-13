@@ -535,3 +535,17 @@
 .owl-nav, .owl-dots{
     display: none;
 }
+
+#productQueryModal{
+    background-color: #F0F0F0;
+}
+
+#productQueryModal h5{
+    font-family: "Roboto", sans-serif;
+    font-weight: bold;
+}
+
+#productQueryForm label{
+    font-family: "Roboto", sans-serif;
+    font-size: 13px;
+}
