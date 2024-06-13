@@ -426,7 +426,7 @@
         var scrollDistance = $(window).scrollTop();
 
         $('section').each(function () {
-            var sectionTop = $(this).offset().top - navbarHeight; 
+            var sectionTop = $(this).offset().top; 
             var sectionBottom = sectionTop + $(this).outerHeight();
 
             if (scrollDistance >= sectionTop && scrollDistance < sectionBottom) {
