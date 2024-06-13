@@ -157,37 +157,8 @@
     <div id="products" class="section">
         <div class="container">
             <h2 class="section-heading">Our Products</h2>
-            <div class="row">
-                <div class="col-lg-4 col-md-4 col-12">
-                    <div class="card product-item">
-                        <img src="scrapmetals.png" alt="Product 1" class="card-img-top product-image">
-                        <div class="card-body">
-                            <h5 class="card-title">Scrap Metals</h5>
-                            <p class="card-text">We offer a comprehensive range of scrap metals, including ferrous and non-ferrous materials. Our scrap metals are sourced from reliable suppliers and are available in various quantities to meet your specific needs.</p>
-                            <button class="btn navbar-btn query-btn" data-category="Scrap Metals">Enquire Now</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-4 col-12">
-                    <div class="card product-item">
-                        <img src="variousmetals.png" alt="Product 2" class="card-img-top product-image">
-                        <div class="card-body">
-                            <h5 class="card-title">Various Metals</h5>
-                            <p class="card-text">In addition to scrap metals, we provide various metals for industrial and commercial applications. From aluminum to copper to steel, our diverse range of metals ensures that you find the right materials for your projects.</p>
-                            <button class="btn navbar-btn query-btn" data-category="Various Metals">Enquire Now</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-4 col-12">
-                    <div class="card product-item">
-                        <img src="importrange.png" alt="Product 3" class="card-img-top product-image">
-                        <div class="card-body">
-                            <h5 class="card-title">Import Range</h5>
-                            <p class="card-text">Stay tuned for our upcoming import range, featuring a curated selection of products from around the world. From electronics to textiles to consumer goods, we aim to bring you the latest and most sought-after products to meet market demands.</p>
-                            <button class="btn navbar-btn query-btn" data-category="Import Range">Enquire Now</button>
-                        </div>
-                    </div>
-                </div>
+            <div class="row" id="productCards">
+                <!-- Product cards will be dynamically inserted here -->
             </div>
         </div>
     </div>
@@ -620,7 +591,59 @@
     });
 </script>
 
+<script>
+$(document).ready(function () {
+    // Fetch products from API
+    $.get('https://psnsltd.000webhostapp.com/get_categories.php')
+        .done(function (data) {
+            // Check if data is valid
+            if (data && data.length > 0) {
+                // Iterate through each product and create a card
+                data.forEach(function (product) {
+                    // Create product card HTML
+                    var productCard = `
+                        <div class="col-lg-4 col-md-4 col-12">
+                            <div class="card product-item">
+                                <img src="${product.image}" alt="${product.name}" class="card-img-top product-image">
+                                <div class="card-body">
+                                    <h5 class="card-title">${product.name}</h5>
+                                    <p class="card-text">${product.description}</p>
+                                    <button class="btn navbar-btn query-btn" data-category="${product.category}">Enquire Now</button>
+                                </div>
+                            </div>
+                        </div>`;
+                    
+                    // Append product card to the productCards container
+                    $('#productCards').append(productCard);
+                });
 
+                // Attach click event to Enquire Now buttons
+                $('.query-btn').click(function () {
+                    let category = $(this).data('category');
+                    $('#category').val(category);
+                    $('#productQueryModal').modal('show');
+                    
+                    // Optionally fetch more details or handle modal content dynamically here
+                });
+            } else {
+                // Handle no data scenario
+                $('#productCards').html('<p>No products available</p>');
+            }
+        })
+        .fail(function () {
+            // Handle failure to fetch products
+            $('#productCards').html('<p>Failed to load products</p>');
+        });
+
+    // Handle form submission
+    $('#productQueryForm').submit(function (event) {
+        event.preventDefault();
+        // Handle the form submission here, e.g., send data to the server
+        alert('Query submitted!');
+        $('#productQueryModal').modal('hide');
+    });
+});
+</script>
 </body>
 
 </html>
