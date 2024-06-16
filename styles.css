@@ -34,11 +34,11 @@
         }
 
         .navbar-nav .nav-item.btn:first-child{
-            padding: 12px 0 12px 12px;
+            padding: 0px 0 0px 12px;
         }
 
         .navbar-nav .nav-item.btn:last-child{
-            padding: 12px 0 12px 3px;
+            padding: 0px 0 0px 3px;
         }
 
         .navbar-nav .nav-link {
