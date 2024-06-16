@@ -29,6 +29,18 @@
             padding: 0 12px;
         }
 
+        .navbar-nav .nav-item.btn{
+            padding: 0;
+        }
+
+        .navbar-nav .nav-item.btn:first-child{
+            padding: 12px 0 12px 12px;
+        }
+
+        .navbar-nav .nav-item.btn:last-child{
+            padding: 12px 0 12px 3px;
+        }
+
         .navbar-nav .nav-link {
             color: #000000 !important;
             font-size: 14px;
