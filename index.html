@@ -603,6 +603,7 @@ $('#productQueryForm').submit(function (event) {
                 contentType: 'application/json',
                 data: JSON.stringify(loginData),
                 success: function(response) {
+                    console.log(response);
                     // Handle successful login
                     if (response.success) {
                         alert('Login successful!');
