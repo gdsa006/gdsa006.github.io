@@ -596,24 +596,18 @@ $('#productQueryForm').submit(function (event) {
                 password: $('#loginPassword').val()
             };
     
-            // Send the login request to the PHP API
-            $.ajax({
-                url: 'https://psnsltd.000webhostapp.com/login.php',
-                method: 'POST',
-                contentType: 'application/json',
-                data: JSON.stringify(loginData),
-                success: function(response) {
-                    if (response.success) {
-                        alert('Login successful!');
-                        sessionStorage.setItem('token', response.token);
-                        window.location.href = 'dashboard.html';
-                    } else {
-                        alert('Login failed: ' + response.message);
-                    }
-                },
-                error: function(jqXHR, textStatus, errorThrown) {
-                    alert('Error during login: ' + textStatus);
+            // Send the login request using $.post
+            $.post('https://psnsltd.000webhostapp.com/login.php', JSON.stringify(loginData), function(response) {
+                if (response.success) {
+                    alert('Login successful!');
+                    sessionStorage.setItem('token', response.token);
+                    window.location.href = 'dashboard.html';
+                } else {
+                    alert('Login failed: ' + response.message);
                 }
+            }, 'json')
+            .fail(function(jqXHR, textStatus, errorThrown) {
+                alert('Error during login: ' + textStatus);
             });
         });
     });
