@@ -585,6 +585,43 @@ $('#productQueryForm').submit(function (event) {
 </script>
 
 
+<script>
+    $(document).ready(function () {
+        $('#loginForm').submit(function (event) {
+            event.preventDefault();
+            
+            // Gather the form data
+            var loginData = {
+                email: $('#loginEmail').val(),
+                password: $('#loginPassword').val()
+            };
+    
+            // Send the login request to the API
+            $.ajax({
+                url: 'https://psnsltd.000webhostapp.com/login',  // Replace with your API endpoint
+                method: 'POST',
+                contentType: 'application/json',
+                data: JSON.stringify(loginData),
+                success: function (response) {
+                    // Handle successful login
+                    if (response.success) {
+                        alert('Login successful!');
+                        // Perform any actions needed after successful login, e.g., redirect to a dashboard
+                        window.location.href = 'dashboard.html'; // Replace with the appropriate URL
+                    } else {
+                        alert('Login failed: ' + response.message);
+                    }
+                },
+                error: function (jqXHR, textStatus, errorThrown) {
+                    // Handle errors here
+                    alert('Error during login: ' + textStatus);
+                }
+            });
+        });
+    });
+    </script>
+    
+
 
 <script>
 $('.navbar-nav a.nav-link[href="#login"]').on('click', function (event) {
