@@ -586,33 +586,35 @@ $('#productQueryForm').submit(function (event) {
 
 
 <script>
-    $(document).ready(function () {
-        $('#loginForm').submit(function (event) {
+    $(document).ready(function() {
+        $('#loginForm').submit(function(event) {
             event.preventDefault();
-            
+    
             // Gather the form data
             var loginData = {
-                user: $('#loginUser').val(),
+                user: $('#loginUser').val(),      // Assuming your input fields have IDs 'loginUser' and 'loginPassword'
                 password: $('#loginPassword').val()
             };
     
-            // Send the login request to the API
+            // Send the login request to the PHP API
             $.ajax({
-                url: 'https://psnsltd.000webhostapp.com/login.php',  // Replace with your API endpoint
+                url: 'login.php',               // Replace with the correct path to your PHP API script
                 method: 'POST',
                 contentType: 'application/json',
                 data: JSON.stringify(loginData),
-                success: function (response) {
+                success: function(response) {
                     // Handle successful login
                     if (response.success) {
                         alert('Login successful!');
+                        // Optionally, you can store the token in localStorage or sessionStorage for future API requests
+                        sessionStorage.setItem('token', response.token);
                         // Perform any actions needed after successful login, e.g., redirect to a dashboard
                         window.location.href = 'dashboard.html'; // Replace with the appropriate URL
                     } else {
                         alert('Login failed: ' + response.message);
                     }
                 },
-                error: function (jqXHR, textStatus, errorThrown) {
+                error: function(jqXHR, textStatus, errorThrown) {
                     // Handle errors here
                     alert('Error during login: ' + textStatus);
                 }
