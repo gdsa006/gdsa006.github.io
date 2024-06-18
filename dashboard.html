@@ -109,10 +109,9 @@
             }
 
             $.ajax({
-                url: 'http://psnsltd.000webhostapp.com/auth.php',
+                url: 'https://psnsltd.000webhostapp.com/auth.php',
                 type: 'POST',
-                contentType: 'application/json',
-                data: JSON.stringify({ token: token }),
+                data: token,
                 success: function (response) {
                     if (response.success) {
                         $('#username').text('Welcome, ' + response.username);
