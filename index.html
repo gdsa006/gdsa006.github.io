@@ -589,13 +589,13 @@ $('#productQueryForm').submit(function (event) {
     $(document).ready(function() {
         $('#loginForm').submit(function(event) {
             event.preventDefault();
-    
+
             // Gather the form data
             var loginData = {
                 user: $('#loginUser').val(),
                 password: $('#loginPassword').val()
             };
-    
+
             // Send the login request using $.ajax
             $.ajax({
                 url: 'https://psnsltd.000webhostapp.com/login.php',
@@ -604,20 +604,26 @@ $('#productQueryForm').submit(function (event) {
                 dataType: 'json',
                 success: function(response) {
                     if (response.success) {
+                        // Display a success message
                         alert('Login successful!');
+                        // Store token in session storage
                         sessionStorage.setItem('token', response.token);
-                        window.location.href = 'dashboard.html';
+                        // Redirect to dashboard.html
+                        window.location.href = 'https://psnsltd.000webhostapp.com/dashboard.php';
                     } else {
+                        // Display an error message
                         alert('Login failed: ' + response.message);
                     }
                 },
                 error: function(jqXHR, textStatus, errorThrown) {
+                    // Display an error message if AJAX request fails
                     alert('Error during login: ' + textStatus);
                 }
             });
         });
     });
-    </script>
+</script>
+
     
     
     
