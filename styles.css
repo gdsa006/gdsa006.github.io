@@ -571,3 +571,13 @@
 #productQueryModal{
     background-color: rgba(0, 0, 0, 0.5);
 }
+
+.card-header {
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+}
+
+.card-header i {
+    margin-right: 10px;
+}
