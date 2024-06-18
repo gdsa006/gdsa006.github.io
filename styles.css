@@ -459,6 +459,11 @@
     background: #028e8e;
 }
 
+.navbar-btn.small{
+    padding: 8px 5px;
+    font-size: 11px;
+}
+
 .default-btn{
     background: #ffffff;
     color: #028e8e;
