@@ -522,7 +522,7 @@
 $(document).ready(function () {
 
 function fetchProducts(categoryId) {
-    $.get('https://psnsltd.000webhostapp.com/get_products.php?category_id=' + categoryId)
+    $.get('//dashboard.psns.ltd/get_products.php?category_id=' + categoryId)
         .done(function (data) {
             let productSelect = $('#product');
             productSelect.empty();
@@ -548,7 +548,7 @@ $.get('https://psnsltd.000webhostapp.com/get_categories.php')
                 var productCard = `
                     <div class="col-lg-4 col-md-4 col-12">
                         <div class="card product-item">
-                            <img src="https://psnsltd.000webhostapp.com/${category.image}" alt="${category.name}" class="card-img-top product-image">
+                            <img src="//dashboard.psns.ltd/${category.image}" alt="${category.name}" class="card-img-top product-image">
                             <div class="card-body">
                                 <h5 class="card-title">${category.name}</h5>
                                 <p class="card-text">${category.description}</p>
@@ -598,7 +598,7 @@ $('#productQueryForm').submit(function (event) {
 
             // Send the login request using $.ajax
             $.ajax({
-                url: 'https://psnsltd.000webhostapp.com/login.php',
+                url: '//dashboard.psns.ltd/login.php',
                 type: 'POST',
                 data: loginData,
                 dataType: 'json',
@@ -609,7 +609,7 @@ $('#productQueryForm').submit(function (event) {
                         // Store token in session storage
                         sessionStorage.setItem('token', response.token);
                         // Redirect to dashboard.html
-                        window.location.href = 'https://psnsltd.000webhostapp.com/dashboard.php';
+                        window.location.href = '//dashboard.psns.ltd/dashboard.php';
                     } else {
                         // Display an error message
                         alert('Login failed: ' + response.message);
