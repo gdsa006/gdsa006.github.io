@@ -706,6 +706,7 @@ $('#productQueryForm').submit(function (event) {
                 },
                 complete: function() {
                     // Show the result modal
+                    $('#leadModal').modal('hide');
                     $('#resultModal').modal('show');
 
                     // Reset form fields
