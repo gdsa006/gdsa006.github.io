@@ -408,6 +408,13 @@
     zoom: 1.09;
 }
 
+
+.team-member img.pierre{
+    width: 400px;
+    top: 51px;
+    height: 170px;
+}
+
 .team-member .card-body{
     padding: 0;
 }
