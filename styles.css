@@ -395,6 +395,20 @@
     transition: 1s all;
 }
 
+.team-member img.jazz{
+    width: 250px;
+    top: 0px; 
+    height: 217px;
+}
+
+.team-member img.raman{
+    width: 255px;
+    top: 36px;
+    /* transform: scale(0.1); */
+    zoom: 1.09;
+}
+
+
 .team-member img::after{
     content: "";
     position: absolute;
