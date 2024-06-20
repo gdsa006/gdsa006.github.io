@@ -392,6 +392,7 @@
     top: 0;
     width: 100px;
     transform: translateX(-50%) translateY(-20px);
+    transition: 1s all;
 }
 
 .team-member img::after{
@@ -406,7 +407,8 @@
 }
 
 .team-member img:hover {
-    transform: scale(1.05);
+    filter: grayscale(0);
+
 }
 
 .team-member h5 {
