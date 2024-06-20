@@ -588,7 +588,7 @@ function fetchProducts(categoryId) {
 
 
 // Fetch products from API
-$.get('https://psnsltd.000webhostapp.com/get_categories.php')
+$.get('http://dashboard.psns.ltd/get_categories.php')
     .done(function (data) {
         if (data && data.length > 0) {
             data.forEach(function (category) {
