@@ -627,3 +627,7 @@
 .card-header i {
     margin-right: 10px;
 }
+
+#leadForm label{
+    font-size: 13px;
+}

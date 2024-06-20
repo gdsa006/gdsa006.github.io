@@ -450,7 +450,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="leadModalLabel">Enter Lead Details</h5>
+                <h5 class="modal-title" id="leadModalLabel">Download Our Catalog</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -465,7 +465,7 @@
                         <label for="phone">Phone number</label>
                         <input type="text" class="form-control" id="phone" name="phone" required>
                     </div>
-                    <button type="submit" class="btn btn-primary navbar-btn">Submit</button>
+                    <button type="submit" class="btn btn-primary btn-block navbar-btn">Submit</button>
                 </form>
             </div>
         </div>
@@ -690,6 +690,15 @@ $('#productQueryForm').submit(function (event) {
                 success: function(response) {
                     // Show result in modal
                     $('#resultModal .modal-body').html(response.message);
+
+                    // Check if download link is provided in response
+                    if (response.download_link) {
+                        // Create a temporary anchor element
+                        var downloadLink = document.createElement('a');
+                        downloadLink.href = response.download_link;
+                        downloadLink.download = 'file.pdf'; // Default filename for download
+                        downloadLink.click();
+                    }
                 },
                 error: function(xhr, status, error) {
                     // Show error in modal
@@ -706,7 +715,7 @@ $('#productQueryForm').submit(function (event) {
         });
     });
 </script>
-    
+
 
 
 <script>
