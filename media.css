@@ -65,13 +65,13 @@
         font-size: 0.9rem;
     }
 
-    .team-member img {
+    /* .team-member img {
         height: 100% !important;
         width: 100% !important;
         transform: scale(1.5) !important;
         object-fit: cover;
         object-position: top;
-    }
+    } */
 
     #contactus .wrapper{
         margin-bottom: 15px !important;
