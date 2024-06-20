@@ -391,7 +391,7 @@
     object-position: center;
     top: 0;
     width: 100px;
-    transform: translateX(-50%) translateY(-20px) scale(01.5);
+    transform: translateX(-50%) translateY(-20px) scale(1);
     transition: 1s all;
 }
 
