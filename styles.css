@@ -408,6 +408,10 @@
     zoom: 1.09;
 }
 
+.team-member .card-body{
+    padding: 0;
+}
+
 
 .team-member img::after{
     content: "";
