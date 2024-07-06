@@ -613,7 +613,7 @@ $.get('//dashboard.psns.ltd/get_categories.php')
                 $('#productCards').append(productCard);
             });
 
-            $('.query-btn-${category.id}').click(function () {
+            $(document).on('click', 'button[class^="query-btn-"]', function () {                
                 let categoryId = $(this).data('category');
                 $('#category').val(categoryId);
                 
