@@ -569,6 +569,9 @@
 $(document).ready(function () {
 
 function fetchProducts(categoryId) {
+    console.log('categoryId');
+    console.log(categoryId);
+    console.log('categoryId');
     $.get('//dashboard.psns.ltd/get_products.php?category_id=' + categoryId)
         .done(function (data) {
             let productSelect = $('#product');
