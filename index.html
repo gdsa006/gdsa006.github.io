@@ -586,7 +586,7 @@ function fetchProducts(categoryId) {
         });
 }
 
-// Fetch products from API
+// Fetch categories from API
 $.get('//dashboard.psns.ltd/get_categories.php')
     .done(function (data) {
         if (data && data.length > 0) {
@@ -618,9 +618,12 @@ $(document).on('click', '.query-btn', function () {
     let categoryId = $(this).data('category');
     $('#category').val(categoryId);
 
-    $('#productQueryModal').modal('show').on('shown.bs.modal', function () {
+    // Only fetch products once when the modal is shown
+    $('#productQueryModal').off('shown.bs.modal').on('shown.bs.modal', function () {
         fetchProducts(categoryId);
     });
+
+    $('#productQueryModal').modal('show');
 });
 
 $('#productQueryForm').submit(function (event) {
@@ -629,6 +632,7 @@ $('#productQueryForm').submit(function (event) {
     $('#productQueryModal').modal('hide');
 });
 });
+
 
 </script>
 
