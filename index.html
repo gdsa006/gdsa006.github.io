@@ -27,7 +27,7 @@
           g.src=BASE_URL+"/packs/js/sdk.js";
           g.defer = true;
           g.async = true;
-          s.parentNode.insertBefore(g,s);
+          s.parentNode.insertBefore(g,s); 
           g.onload=function(){
             window.chatwootSDK.run({
               websiteToken: 'WDEnQfE7Dz83v9X67kcUSZij',
@@ -573,6 +573,9 @@ function fetchProducts(categoryId) {
         .done(function (data) {
             let productSelect = $('#product');
             productSelect.empty();
+            console.log('---');
+            console.log(data);
+            console.log('---');
             if (data && data.length > 0) {
                 data.forEach(function (product) {
                     productSelect.append('<option value="' + product.id + '">' + product.name + '</option>');
