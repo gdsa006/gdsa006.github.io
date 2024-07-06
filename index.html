@@ -568,17 +568,13 @@
 <script>
 $(document).ready(function () {
 
+    $(document).ready(function () {
+
 function fetchProducts(categoryId) {
-    console.log('categoryId');
-    console.log(categoryId);
-    console.log('categoryId');
     $.get('//dashboard.psns.ltd/get_products.php?category_id=' + categoryId)
         .done(function (data) {
             let productSelect = $('#product');
             productSelect.empty();
-            console.log('---');
-            console.log(data);
-            console.log('---');
             if (data && data.length > 0) {
                 data.forEach(function (product) {
                     productSelect.append('<option value="' + product.id + '">' + product.name + '</option>');
@@ -592,7 +588,6 @@ function fetchProducts(categoryId) {
         });
 }
 
-
 // Fetch products from API
 $.get('//dashboard.psns.ltd/get_categories.php')
     .done(function (data) {
@@ -605,21 +600,12 @@ $.get('//dashboard.psns.ltd/get_categories.php')
                             <div class="card-body">
                                 <h5 class="card-title">${category.name}</h5>
                                 <p class="card-text">${category.description}</p>
-                                <button class="btn navbar-btn query-btn-${category.id}" data-category="${category.id}">Enquire Now</button>
+                                <button class="btn navbar-btn query-btn" data-category="${category.id}">Enquire Now</button>
                             </div>
                         </div>
                     </div>`;
                 
                 $('#productCards').append(productCard);
-            });
-
-            $(document).on('click', 'button[class^="query-btn-1"]', function () {                
-                let categoryId = $(this).data('category');
-                $('#category').val(categoryId);
-                
-                $('#productQueryModal').modal('show').on('shown.bs.modal', function () {
-                    fetchProducts(categoryId);
-                });
             });
         } else {
             $('#productCards').html('<p>No products available</p>');
@@ -629,12 +615,23 @@ $.get('//dashboard.psns.ltd/get_categories.php')
         $('#productCards').html('<p>Failed to load products</p>');
     });
 
+// Delegated event handler for dynamically added buttons
+$(document).on('click', '.query-btn', function () {
+    let categoryId = $(this).data('category');
+    $('#category').val(categoryId);
+
+    $('#productQueryModal').modal('show').on('shown.bs.modal', function () {
+        fetchProducts(categoryId);
+    });
+});
+
 $('#productQueryForm').submit(function (event) {
     event.preventDefault();
     alert('Query submitted!');
     $('#productQueryModal').modal('hide');
 });
 });
+
 </script>
 
 
