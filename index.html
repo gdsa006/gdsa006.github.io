@@ -605,7 +605,7 @@ $.get('//dashboard.psns.ltd/get_categories.php')
                             <div class="card-body">
                                 <h5 class="card-title">${category.name}</h5>
                                 <p class="card-text">${category.description}</p>
-                                <button class="btn navbar-btn query-btn" data-category="${category.id}">Enquire Now</button>
+                                <button class="btn navbar-btn query-btn-${category.id}" data-category="${category.id}">Enquire Now</button>
                             </div>
                         </div>
                     </div>`;
@@ -613,7 +613,7 @@ $.get('//dashboard.psns.ltd/get_categories.php')
                 $('#productCards').append(productCard);
             });
 
-            $(document).on('click', `.query-btn[data-category=${category.id}]`, function() {
+            $('.query-btn-${category.id}').click(function () {
                 let categoryId = $(this).data('category');
                 $('#category').val(categoryId);
                 
