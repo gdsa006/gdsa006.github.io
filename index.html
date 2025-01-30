@@ -92,12 +92,12 @@
     }
 
     .logo-inner {
-        z-index: 1; /* Inner logo on top */
+        z-index: 1;
     }
 
     .logo-outer {
         clip-path: circle(50% at 50% 50%);
-        z-index: 0; /* Outer logo behind inner logo */
+        z-index: 0; 
         animation: rotateLogo 10s linear infinite;
     }
 
@@ -310,39 +310,79 @@
         }
 
         .floating-contact {
-            position: fixed;
-            right: 20px;
-            bottom: 20px;
-            background: white;
-            padding: 15px 25px;
-            border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-            z-index: 1000;
-            transition: all 0.3s ease;
-        }
+        position: fixed;
+        right: 20px;
+        bottom: 20px;
+        background: white;
+        padding: 15px 25px;
+        border-radius: 15px;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        z-index: 1000;
+        transition: all 0.3s ease;
+        width: 200px; /* Initial width */
+    }
 
-        .floating-contact:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-        }
+    .floating-contact:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    }
 
-        .floating-contact a {
-            display: block;
-            color: var(--primary);
-            text-decoration: none;
-            margin: 10px 0;
-            transition: color 0.3s ease;
-            font-size: 0.9rem;
-        }
+    .floating-contact a {
+        display: block;
+        color: var(--primary);
+        text-decoration: none;
+        margin: 10px 0;
+        transition: color 0.3s ease;
+        font-size: 0.9rem;
+    }
 
-        .floating-contact a:hover {
-            color: var(--secondary);
-        }
+    .floating-contact a:hover {
+        color: var(--secondary);
+    }
 
-        .floating-contact i {
-            margin-right: 10px;
-            width: 20px;
+    .floating-contact i {
+        margin-right: 10px;
+        width: 20px;
+    }
+
+    .floating-contact.minimized {
+        width: 50px; 
+        height: 50px; 
+        padding: 10px;
+        text-align: center;
+    }
+
+    .floating-contact.minimized a:not(.minimized-contact) {
+        display: none; 
+    }
+
+    .floating-contact.minimized .minimized-contact {
+        display: block;
+        font-size: 24px;
+        line-height: 50px; 
+    }
+
+    @keyframes minimize {
+        from {
+            width: 200px;
+            height: auto;
         }
+        to {
+            width: 50px;
+            height: 50px;
+        }
+    }
+
+    @keyframes maximize {
+        from {
+            width: 50px;
+            height: 50px;
+        }
+        to {
+            width: 200px;
+            height: auto;
+        }
+    }
 
         .reveal {
             opacity: 0;
@@ -388,6 +428,7 @@
     <div class="floating-contact" data-aos="fade-up">
         <a href="tel:+1234567890"><i class="fas fa-phone"></i> +91 94170 59155</a>
         <a href="mailto:info@sgktrust.org"><i class="fas fa-envelope"></i> sgkmtrust@gmail.com</a>
+        <a href="#" class="minimized-contact"><i class="fas fa-info-circle"></i></a>
     </div>
 
     <!-- Navigation -->
@@ -562,9 +603,30 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         AOS.init({
-          // Duration of animation (in milliseconds)
           duration: 1500,
         });
       </script>
+
+
+<script>
+    document.addEventListener('DOMContentLoaded', (event) => {
+        const floatingContact = document.querySelector('.floating-contact');
+        let lastScrollTop = 0;
+
+        window.addEventListener('scroll', function() {
+            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            
+            if (scrollTop > lastScrollTop) {
+                floatingContact.classList.add('minimized');
+                floatingContact.style.animation = 'minimize 0.3s ease-out forwards';
+            } else {
+                floatingContact.classList.remove('minimized');
+                floatingContact.style.animation = 'maximize 0.3s ease-out forwards';
+            }
+            
+            lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; 
+        }, false);
+    });
+</script>
 </body>
 </html>
