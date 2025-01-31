@@ -28,7 +28,7 @@ window.addEventListener('scroll', function() {
 
 // donate popup
 function openDonationPopup() {
-document.getElementById("donationPopup").style.display = "block";
+document.getElementById("donationPopup").style.display = "flex";
 }
 
 function closeDonationPopup() {

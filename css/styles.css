@@ -440,17 +440,19 @@ to {
 display: none;
 position: fixed;
 z-index: 1000;
-left: 0;
-top: 0;
+left: 50%;
+top: 50%;
+transform: translate(-50%, -50%);
 width: 100%;
 height: 100%;
 overflow: auto;
-background-color: rgba(0,0,0,0.7); /* Darker overlay for better focus on popup */
+background-color: rgba(0,0,0,0.7);
+justify-content: center;
+align-items: center;
 }
 
 .popup-content {
 background-color: #ffffff;
-margin: 10% auto; /* Adjust the vertical position */
 padding: 30px;
 border-radius: 8px;
 width: 90%;
@@ -486,8 +488,8 @@ font-size: 16px;
 }
 
 .bank-details strong {
-display: inline-block;
-width: 150px; /* Makes labels align */
+display: block;
+width: 150px; 
 }
 
 /* Responsive Adjustments */
