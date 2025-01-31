@@ -659,3 +659,33 @@ width: 100%;
         font-size: 12px;
     }
 }
+
+
+.footer-credit {
+    background-color: #f8f9fa;
+    padding: 15px 0;
+    text-align: center;
+    border-top: 1px solid #eee;
+}
+
+.footer-credit p {
+    margin: 0;
+    font-size: 14px;
+    color: #666;
+}
+
+.footer-credit a {
+    color: #333;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.footer-credit a:hover {
+    color: #d35400;
+}
+
+.social-links {
+    margin-bottom: 0;
+    padding-bottom: 15px;
+}
