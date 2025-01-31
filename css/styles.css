@@ -590,7 +590,9 @@ width: 100%;
 }
 
 
-
+.mobile-contact-bar{
+    display: none;
+}
 
 @media (max-width: 768px) {
     .floating-contact {
