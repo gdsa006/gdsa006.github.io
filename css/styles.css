@@ -130,8 +130,22 @@ display: block;
 width: 100%;
 height: 100%; 
 animation: waveMove 10s linear infinite;
-background-color: var(--light);
+background: linear-gradient(to right, #f8cdda, #f0e68c);
+background-size: 200% 200%;
+  animation: gradientAnimation 15s ease infinite;
 }
+
+@keyframes gradientAnimation {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
 
 @keyframes waveMove {
 0% {
@@ -281,7 +295,7 @@ to {
     font-size: 1.2rem;
     border-radius: 30px;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease;
+  transition: background-color 0.3s ease;
 }
 
 .donate-btn:active {
