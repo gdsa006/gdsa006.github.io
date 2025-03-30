@@ -77,3 +77,13 @@ document.body.style.overflow = 'auto';
 }
 
 
+document.addEventListener("DOMContentLoaded", () => {
+    const audio = document.getElementById('background-music');
+    const playButton = document.getElementById('play-button');
+
+    playButton.addEventListener('click', () => {
+        audio.play()
+            .then(() => console.log('Playback started!'))
+            .catch(error => console.error('Playback failed:', error));
+    });
+});
