@@ -87,3 +87,11 @@ document.addEventListener("DOMContentLoaded", () => {
             .catch(error => console.error('Playback failed:', error));
     });
 });
+
+
+function activateEventsTab() {
+    document.querySelectorAll('#galleryTab .nav-link').forEach(tab => tab.classList.remove('active'));
+    document.querySelectorAll('.tab-content .tab-pane').forEach(pane => pane.classList.remove('show', 'active'));
+    document.querySelector('#galleryTab a[href="#events"]').classList.add('active');
+    document.querySelector('#events').classList.add('show', 'active');
+}
