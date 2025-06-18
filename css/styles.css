@@ -199,7 +199,7 @@ top: 0;
 left: 0;
 width: 100%;
 height: 100%;
-transform: scale(0.8);
+transform: scale(0.77) translateX(-0.29px) translateY(0.2px);
 }
 
 .logo-inner {
